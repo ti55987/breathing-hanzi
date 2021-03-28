@@ -36,7 +36,7 @@ function AppRouter() {
             <About />
           </Route>
           <Route path="/dashboard">
-            <WordPresenter word="我" />
+            <WordPresenter word="鼻" />
           </Route>
         </Switch>
       </div>
