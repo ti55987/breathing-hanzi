@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import HanziWriter from "hanzi-writer";
+import WordPresenter from "./components/word_presenter";
 
 function AppRouter() {
   return (
@@ -36,7 +36,7 @@ function AppRouter() {
             <About />
           </Route>
           <Route path="/dashboard">
-            <Dashboard />
+            <WordPresenter word="我" />
           </Route>
         </Switch>
       </div>
@@ -61,24 +61,6 @@ function About() {
       <h2>About</h2>
     </div>
   );
-}
-
-function Dashboard() {
-  return (
-    <div id="character-target-div">
-      <h2>我</h2>
-      <button onClick={presentWord}>打開</button>
-    </div>
-  );
-}
-
-function presentWord() {
-  var writer = HanziWriter.create("character-target-div", "我", {
-    width: 100,
-    height: 100,
-    padding: 5
-  });
-  writer.loopCharacterAnimation();
 }
 
 function App() {
