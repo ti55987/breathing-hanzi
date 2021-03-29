@@ -10,6 +10,7 @@ interface WordPresenterProps {
 
 type WordPresenterState = {
   progress: string;
+  gridWriter: HanziWriter | null;
 };
 
 class WordPresenter extends React.Component<
@@ -20,25 +21,44 @@ class WordPresenter extends React.Component<
     word: Requireable<string>;
   };
 
-  constructor(props: any) {
+  constructor(props: WordPresenterProps) {
     super(props);
 
     this.state = {
-      progress: "teach"
+      progress: "",
+      gridWriter: null
     };
+  }
+
+  componentDidMount() {
+    const gridWriter = HanziWriter.create(
+      "grid-background-target",
+      this.props.word,
+      {
+        width: 300,
+        height: 300,
+        padding: 20
+      }
+    );
+    gridWriter.hideCharacter();
+    this.setState({ gridWriter: gridWriter });
   }
 
   componentDidUpdate() {
     // Typical usage (don't forget to compare props):
     switch (this.state.progress) {
       case "teach":
-        this.handleClick(this.props.word);
+        if (!this.state.gridWriter) {
+          return;
+        }
+        // (TODO) quit quiz?
+        this.state.gridWriter.showCharacter();
         return;
       case "demo":
-        this.handleClick(this.props.word, true);
+        this.handleWithPic(this.props.word, this.state.progress, true);
         return;
       case "draw":
-        this.handleQuiz(this.props.word, "nose");
+        this.handleWithPic(this.props.word, this.state.progress);
         return;
       case "test":
         this.handleQuiz(this.props.word);
@@ -46,39 +66,37 @@ class WordPresenter extends React.Component<
     }
   }
 
-  handleClick(word: string, animate: boolean = false) {
-    let div = "grid-background-target";
-    if (animate) {
-      div = "nose";
-    }
-
+  handleWithPic(word: string, div: string, animate: boolean = false) {
     const writer = HanziWriter.create(div, word, {
       width: 300,
       height: 300,
       padding: 20
     });
+
     if (animate) {
-      writer.loopCharacterAnimation();
+      writer.animateCharacter();
+    } else {
+      writer.hideCharacter();
+      writer.hideOutline();
+      writer.quiz();
     }
   }
 
   handleQuiz(word: string, target: string = "grid-background-target") {
-    const writer = HanziWriter.create(target, word, {
-      width: 300,
-      height: 300,
-      padding: 20,
-      showCharacter: false,
-      showOutline: false
-    });
+    if (!this.state.gridWriter) {
+      return;
+    }
 
-    writer.quiz();
+    this.state.gridWriter.hideCharacter();
+    this.state.gridWriter.hideOutline();
+    this.state.gridWriter.quiz();
   }
 
   render() {
     const { word } = this.props;
     let background;
     if (this.state.progress === "demo" || this.state.progress === "draw") {
-      background = <NosePic />;
+      background = <NosePic id={this.state.progress} />;
     } else {
       background = <GridPic />;
     }
