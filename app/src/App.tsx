@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import WordPresenter from "./components/word_presenter";
+import TesterContainer from "./components/tester_container";
 
 function AppRouter() {
   return (
@@ -15,7 +16,7 @@ function AppRouter() {
             <Link to="/about">關於</Link>
           </li>
           <li>
-            <Link to="/dashboard">有生命的漢字</Link>
+            <Link to="/hanzi/鼻">有生命的漢字</Link>
           </li>
         </ul>
 
@@ -35,9 +36,8 @@ function AppRouter() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/dashboard">
-            <WordPresenter word="鼻" />
-          </Route>
+          <Route path={"/hanzi/:word"} component={WordPresenter} />
+          <Route path="/hanzi/:word/test" component={TesterContainer} />
         </Switch>
       </div>
     </Router>

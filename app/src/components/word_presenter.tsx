@@ -1,116 +1,94 @@
 import React, { Requireable } from "react";
+import { Link, useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import HanziWriter from "hanzi-writer";
 import { ReactComponent as NosePic } from "../images/nose.svg";
 import { ReactComponent as GridPic } from "../images/grid.svg";
 
-interface WordPresenterProps {
-  word: string;
+export interface IWordPresenterProps {
+  match: {
+    params: {
+      word: string;
+    };
+    [key: string]: unknown;
+  };
 }
 
 type WordPresenterState = {
   progress: string;
   gridWriter: HanziWriter | null;
+  picWriter: HanziWriter | null;
 };
 
+function NavTest(word: string) {
+  let history = useHistory();
+
+  return (
+    <button
+      onClick={() => {
+        history.push("");
+      }}
+    >
+      測驗
+    </button>
+  );
+}
+
 class WordPresenter extends React.Component<
-  WordPresenterProps,
+  IWordPresenterProps,
   WordPresenterState
 > {
-  static propTypes: {
-    word: Requireable<string>;
-  };
-
-  constructor(props: WordPresenterProps) {
+  constructor(props: IWordPresenterProps) {
     super(props);
 
     this.state = {
-      progress: "",
-      gridWriter: null
+      progress: "init",
+      gridWriter: null,
+      picWriter: null
     };
   }
 
   componentDidMount() {
-    const gridWriter = HanziWriter.create(
-      "grid-background-target",
-      this.props.word,
-      {
-        width: 300,
-        height: 300,
-        padding: 20
-      }
-    );
-    gridWriter.hideCharacter();
-    this.setState({ gridWriter: gridWriter });
+    const picWriter = HanziWriter.create("nose", this.props.match.params.word, {
+      width: 300,
+      height: 300,
+      padding: 20
+    });
+    picWriter.hideCharacter();
+    this.setState({ picWriter: picWriter });
   }
 
   componentDidUpdate() {
     // Typical usage (don't forget to compare props):
     switch (this.state.progress) {
-      case "teach":
-        if (!this.state.gridWriter) {
-          return;
-        }
-        // (TODO) quit quiz?
-        this.state.gridWriter.showCharacter();
-        return;
       case "demo":
-        this.handleWithPic(this.props.word, this.state.progress, true);
+        this.handleWithPic(this.props.match.params.word, true);
         return;
       case "draw":
-        this.handleWithPic(this.props.word, this.state.progress);
-        return;
-      case "test":
-        this.handleQuiz(this.props.word);
+        this.handleWithPic(this.props.match.params.word);
         return;
     }
   }
 
-  handleWithPic(word: string, div: string, animate: boolean = false) {
-    const writer = HanziWriter.create(div, word, {
-      width: 300,
-      height: 300,
-      padding: 20
-    });
-
-    if (animate) {
-      writer.animateCharacter();
-    } else {
-      writer.hideCharacter();
-      writer.hideOutline();
-      writer.quiz();
-    }
-  }
-
-  handleQuiz(word: string, target: string = "grid-background-target") {
-    if (!this.state.gridWriter) {
+  handleWithPic(word: string, animate: boolean = false) {
+    if (!this.state.picWriter) {
       return;
     }
 
-    this.state.gridWriter.hideCharacter();
-    this.state.gridWriter.hideOutline();
-    this.state.gridWriter.quiz();
+    if (animate) {
+      this.state.picWriter.animateCharacter();
+    } else {
+      this.state.picWriter.hideCharacter();
+      this.state.picWriter.hideOutline();
+      this.state.picWriter.quiz();
+    }
   }
 
   render() {
-    const { word } = this.props;
-    let background;
-    if (this.state.progress === "demo" || this.state.progress === "draw") {
-      background = <NosePic id={this.state.progress} />;
-    } else {
-      background = <GridPic />;
-    }
-
+    const testLink = "/hanzi/" + this.props.match.params.word + "/test";
     return (
       <div id="list-div">
-        <button
-          disabled={this.state.progress === "teach"}
-          onClick={() => {
-            this.setState({ progress: "teach" });
-          }}
-        >
-          {word}
-        </button>
+        <h1>{this.props.match.params.word}</h1>
         <button
           disabled={this.state.progress === "demo"}
           onClick={() => {
@@ -136,14 +114,10 @@ class WordPresenter extends React.Component<
           測驗
         </button>
         <div id="character-div"></div>
-        {background}
+        <NosePic />
       </div>
     );
   }
 }
-
-WordPresenter.propTypes = {
-  word: PropTypes.string
-};
 
 export default WordPresenter;
