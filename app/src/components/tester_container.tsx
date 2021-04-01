@@ -2,29 +2,30 @@ import React, { Requireable } from "react";
 import PropTypes from "prop-types";
 import HanziWriter from "hanzi-writer";
 import { ReactComponent as GridPic } from "../images/grid.svg";
-import { IWordPresenterProps } from "./word_presenter";
+import { ReactComponent as NosePic } from "../images/nose.svg";
+import { IWordContainerProps } from "./word_container";
 
-interface TesterContainerProps {
-  word: string;
-}
+const queryString = require("query-string");
 
-type TesterContainerState = {
-  progress: string;
-  gridWriter: HanziWriter | null;
-};
-
-class TesterContainer extends React.Component<IWordPresenterProps> {
+class TesterContainer extends React.Component<IWordContainerProps> {
   static propTypes: {
     word: Requireable<string>;
   };
 
-  constructor(props: IWordPresenterProps) {
-    super(props);
+  withPicture(query: string): boolean {
+    return (
+      queryString.parse(this.props.history.location.search).picture === "true"
+    );
   }
 
   componentDidMount() {
+    let background = "grid-background-target";
+    if (this.withPicture(this.props.history.location.search)) {
+      background = "nose";
+    }
+
     const gridWriter = HanziWriter.create(
-      "grid-background-target",
+      background,
       this.props.match.params.word,
       {
         width: 300,
@@ -39,10 +40,15 @@ class TesterContainer extends React.Component<IWordPresenterProps> {
   }
 
   render() {
+    let background = <GridPic />;
+    if (this.withPicture(this.props.history.location.search)) {
+      background = <NosePic />;
+    }
+
     return (
       <div id="list-div">
         <h1>請寫出{this.props.match.params.word}</h1>
-        <GridPic />
+        {background}
       </div>
     );
   }

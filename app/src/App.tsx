@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import WordPresenter from "./components/word_presenter";
+import WordContainer from "./components/word_container";
 import TesterContainer from "./components/tester_container";
 
 function AppRouter() {
@@ -10,13 +10,13 @@ function AppRouter() {
       <div>
         <ul>
           <li>
-            <Link to="/">首頁</Link>
+            <Link to="/">有生命的漢字</Link>
           </li>
           <li>
             <Link to="/about">關於</Link>
           </li>
           <li>
-            <Link to="/hanzi/鼻">有生命的漢字</Link>
+            <Link to="/hanzi/鼻">鼻</Link>
           </li>
         </ul>
 
@@ -33,11 +33,11 @@ function AppRouter() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/about">
+          <Route exact path="/about">
             <About />
           </Route>
-          <Route path={"/hanzi/:word"} component={WordPresenter} />
-          <Route path="/hanzi/:word/test" component={TesterContainer} />
+          <Route exact path={"/hanzi/:word"} component={WordContainer} />
+          <Route exact path={"/hanzi/:word/test"} component={TesterContainer} />
         </Switch>
       </div>
     </Router>
@@ -50,7 +50,7 @@ function AppRouter() {
 function Home() {
   return (
     <div>
-      <h2>Home</h2>
+      <h2>有生命的漢字</h2>
     </div>
   );
 }
@@ -58,7 +58,7 @@ function Home() {
 function About() {
   return (
     <div>
-      <h2>About</h2>
+      <h2>關於</h2>
     </div>
   );
 }
