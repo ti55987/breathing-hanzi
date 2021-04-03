@@ -3,23 +3,13 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import WordContainer from "./components/word_container";
 import TesterContainer from "./components/tester_container";
+import Navbar from "./components/navbar";
 
 function AppRouter() {
   return (
     <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">有生命的漢字</Link>
-          </li>
-          <li>
-            <Link to="/about">關於</Link>
-          </li>
-          <li>
-            <Link to="/hanzi/鼻">鼻</Link>
-          </li>
-        </ul>
-
+      <Navbar />
+      <div className="App">
         <hr />
 
         {/*
