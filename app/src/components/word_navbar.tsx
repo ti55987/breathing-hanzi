@@ -1,0 +1,28 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import "./word_navbar.css";
+import { WordNavbarData } from "./word_navbar_data";
+import * as IoIcons from "react-icons/io";
+
+function WordNavbar(props: { word: string }) {
+  const { word } = props;
+  const testLink = "/hanzi/" + word + "/test";
+  return (
+    <nav className="word-navbar navbar-default">
+      <ul className="word-navbar-ul navbar-nav">
+        {WordNavbarData.map((item, index) => {
+          return (
+            <li key={index} className={item.cName}>
+              <Link to={item.path(word)}>
+                {item.icon}
+                <span>{item.title}</span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+}
+
+export default WordNavbar;

@@ -1,0 +1,36 @@
+.word-navbar {
+  background: transparent;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.word-navbar-ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navbar-top {
+  float: left;
+  height: 60px;
+  align-items: center;
+}
+
+.navbar-top a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 12px 12px;
+  border-radius: 4px;
+  font-size: 28px;
+  width: 95%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.navbar-top a:hover {
+  background-color: #f8cfa1;
+}

@@ -1,7 +1,7 @@
 import React from "react";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
+import * as AiIcons from "react-icons/ai";
+import * as ImIcons from "react-icons/im";
 
 export const SidebarData = [
   {
@@ -13,7 +13,7 @@ export const SidebarData = [
   {
     title: "鼻",
     path: "/hanzi/鼻",
-    icon: <IoIcons.IoIosPaper />,
+    icon: <ImIcons.ImQuill />,
     cName: "nav-text"
   },
   {

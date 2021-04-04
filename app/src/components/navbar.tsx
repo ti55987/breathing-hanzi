@@ -18,7 +18,7 @@ function Navbar() {
           <FaIcons.FaBars onClick={showSidebar} />
         </Link>
         <div className="title">
-          <h1> 有生命的漢字</h1>
+          <h1>有生命的漢字</h1>
         </div>
       </div>
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>

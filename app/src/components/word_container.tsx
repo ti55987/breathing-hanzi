@@ -4,6 +4,7 @@ import HanziWriter from "hanzi-writer";
 import { ReactComponent as NosePic } from "../images/nose.svg";
 import { ReactComponent as GridPic } from "../images/grid.svg";
 import { withRouter } from "react-router-dom";
+import WordPresenter from "./word_presenter";
 
 export interface IWordContainerProps extends RouteComponentProps {
   match: {
@@ -39,9 +40,11 @@ class WordContainer extends React.Component<
   }
   // (TODO) match state with props
   render() {
-    const testLink = "/hanzi/" + this.props.match.params.word + "/test";
+    const { match } = this.props;
+    const testLink = "/hanzi/" + match.params.word + "/test";
     return (
       <div id="list-div">
+        <WordPresenter word={match.params.word} />
         <button
           onClick={() => {
             this.state.gridWriter && this.state.gridWriter.animateCharacter();
@@ -49,16 +52,6 @@ class WordContainer extends React.Component<
         >
           示範
         </button>
-        <button
-          onClick={() => this.props.history.push(testLink + "?picture=true")}
-        >
-          看圖寫字
-        </button>
-        <button onClick={() => this.props.history.push(testLink)}>測驗</button>
-        <div id="character-div">
-          <GridPic id="grid" />
-          <NosePic />
-        </div>
       </div>
     );
   }
