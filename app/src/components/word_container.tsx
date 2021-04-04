@@ -1,8 +1,6 @@
 import React from "react";
 import { RouteComponentProps } from "react-router-dom";
 import HanziWriter from "hanzi-writer";
-import { ReactComponent as NosePic } from "../images/nose.svg";
-import { ReactComponent as GridPic } from "../images/grid.svg";
 import { withRouter } from "react-router-dom";
 import WordPresenter from "./word_presenter";
 
@@ -41,7 +39,6 @@ class WordContainer extends React.Component<
   // (TODO) match state with props
   render() {
     const { match } = this.props;
-    const testLink = "/hanzi/" + match.params.word + "/test";
     return (
       <div id="list-div">
         <WordPresenter word={match.params.word} />
