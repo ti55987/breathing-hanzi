@@ -11,8 +11,8 @@ export const SidebarData = [
     cName: "nav-text"
   },
   {
-    title: "鼻",
-    path: "/hanzi/鼻",
+    title: "手",
+    path: "/hanzi/手",
     icon: <ImIcons.ImQuill />,
     cName: "nav-text"
   },

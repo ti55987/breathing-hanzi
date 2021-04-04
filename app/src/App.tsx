@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import WordContainer from "./components/word_container";
-import TesterContainer from "./components/tester_container";
+import Tester from "./components/tester_container";
 import Navbar from "./components/navbar";
 
 function AppRouter() {
@@ -27,7 +27,9 @@ function AppRouter() {
             <About />
           </Route>
           <Route exact path={"/hanzi/:word"} component={WordContainer} />
-          <Route exact path={"/hanzi/:word/test"} component={TesterContainer} />
+          <Route exact path={"/hanzi/:word/test"}>
+            <Tester />
+          </Route>
         </Switch>
       </div>
     </Router>

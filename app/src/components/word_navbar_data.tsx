@@ -1,5 +1,5 @@
 import React from "react";
-import * as IoIcons from "react-icons/io";
+import * as BsIcons from "react-icons/bs";
 import * as AiIcons from "react-icons/ai";
 import * as ImIcons from "react-icons/im";
 
@@ -19,19 +19,19 @@ export const WordNavbarData = [
   {
     title: "字卡",
     path: demoPath,
-    icon: <AiIcons.AiFillHome />,
+    icon: <BsIcons.BsCardText />,
     cName: "navbar-top"
   },
   {
     title: "看圖寫字",
     path: testWithDrawingPath,
-    icon: <ImIcons.ImQuill />,
+    icon: <AiIcons.AiFillPicture />,
     cName: "navbar-top"
   },
   {
     title: "測驗",
     path: testPath,
-    icon: <IoIcons.IoMdHelpCircle />,
+    icon: <ImIcons.ImPencil2 />,
     cName: "navbar-top"
   }
 ];
