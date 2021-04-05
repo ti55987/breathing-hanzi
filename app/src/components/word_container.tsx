@@ -18,8 +18,11 @@ function WordContainer() {
   }, [word]);
 
   return (
-    <div id="list-div">
-      <WordPresenter word={word} />
+    <div>
+      <WordPresenter
+        word={word}
+        url={"https://dl.dropbox.com/s/tmrkb8y57dlw1no/%E5%8F%88.png"}
+      />
       <button
         onClick={() => {
           gridWriter && gridWriter.animateCharacter();

@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import HanziWriter from "hanzi-writer";
 import { useLocation, useParams } from "react-router-dom";
 import { ReactComponent as GridPic } from "../images/grid.svg";
-import { ReactComponent as NosePic } from "../images/nose.svg";
 import WordNavbar from "./word_navbar";
 import * as googleTTS from "google-tts-api";
 import * as ImIcons from "react-icons/im";
-
+import "./tester_container.css";
 const queryString = require("query-string");
 
 function AudioPlayer(props: { word: string }) {
@@ -43,7 +42,8 @@ function Tester() {
   const { word } = useParams<{ word: string }>();
 
   const withPicture = queryString.parse(location.search).picture === "true";
-  const background = withPicture ? <NosePic /> : <GridPic />;
+  const picture = <div id="nose" className="drawing-background"></div>;
+  const backgroud = withPicture ? picture : <GridPic />;
 
   useEffect(() => {
     const idName = withPicture ? "nose" : "grid-background-target";
@@ -58,14 +58,23 @@ function Tester() {
     gridWriter.quiz();
   }, [withPicture, word]);
 
+  useEffect(() => {
+    if (withPicture) {
+      const el = document.getElementById("nose");
+      const imageFilePath =
+        "https://dl.dropbox.com/s/tmrkb8y57dlw1no/%E5%8F%88.png";
+      if (el) {
+        el.style.backgroundImage = `url('${imageFilePath}')`;
+      }
+    }
+  }, [withPicture]);
+
   return (
     <div>
       <WordNavbar word={word} />
-      <div>
-        <h1>請寫出</h1>
-        <AudioPlayer word={word} />
-      </div>
-      {background}
+      <AudioPlayer word={word} />
+      <h1>請寫出</h1>
+      {backgroud}
     </div>
   );
 }
