@@ -21,14 +21,14 @@ function AudioPlayer(props: { word: string }) {
     if (playing) {
       audio.play();
     }
-  }, [playing]);
+  }, [playing, audio]);
 
   useEffect(() => {
     audio.addEventListener("ended", () => setPlaying(false));
     return () => {
       audio.removeEventListener("ended", () => setPlaying(false));
     };
-  }, []);
+  }, [audio]);
 
   const hitPlayer = () => setPlaying(!playing);
   return (
@@ -56,7 +56,7 @@ function Tester() {
     gridWriter.hideCharacter();
     gridWriter.hideOutline();
     gridWriter.quiz();
-  }, [withPicture]);
+  }, [withPicture, word]);
 
   return (
     <div>

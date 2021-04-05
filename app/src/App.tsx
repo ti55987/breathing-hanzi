@@ -26,7 +26,9 @@ function AppRouter() {
           <Route exact path="/about">
             <About />
           </Route>
-          <Route exact path={"/hanzi/:word"} component={WordContainer} />
+          <Route exact path={"/hanzi/:word"}>
+            <WordContainer />
+          </Route>
           <Route exact path={"/hanzi/:word/test"}>
             <Tester />
           </Route>
