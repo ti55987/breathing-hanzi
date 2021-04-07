@@ -9,8 +9,8 @@ import * as ImIcons from "react-icons/im";
 import "./tester_container.css";
 const queryString = require("query-string");
 
-function AudioPlayer(props: { word: string }) {
-  const [audio] = useState(new Audio(WordData[props.word].testAudio));
+function AudioPlayer(props: { url: string }) {
+  const [audio] = useState(new Audio(props.url));
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
@@ -68,9 +68,13 @@ function Tester() {
   return (
     <div>
       <WordNavbar word={word} />
-      <AudioPlayer word={word} />
+      <AudioPlayer url={WordData[word].testAudio} />
       <h1>請寫出</h1>
       {backgroud}
+      <hr />
+      <h3>提示</h3>
+      <br />
+      <AudioPlayer url={WordData[word].hintAudio} />
     </div>
   );
 }
