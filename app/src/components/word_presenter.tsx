@@ -6,7 +6,7 @@ function WordPresenter(props: { word: string; url: string }) {
   return (
     <div id="character-div">
       <WordNavbar word={props.word} />
-      <GridPic id="grid" />
+      <GridPic id={props.word} />
       <img width="300" height="300" src={props.url} />
     </div>
   );

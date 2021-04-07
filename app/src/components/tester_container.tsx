@@ -3,17 +3,14 @@ import HanziWriter from "hanzi-writer";
 import { useLocation, useParams } from "react-router-dom";
 import { ReactComponent as GridPic } from "../images/grid.svg";
 import WordNavbar from "./word_navbar";
+import { WordData } from "./word_data";
 import * as googleTTS from "google-tts-api";
 import * as ImIcons from "react-icons/im";
 import "./tester_container.css";
 const queryString = require("query-string");
 
 function AudioPlayer(props: { word: string }) {
-  const [audio] = useState(
-    new Audio(
-      "https://dl.dropbox.com/s/cw9uyg0bm6lzd2x/Record%20%28online-voice-recorder.com%29.mp3"
-    )
-  );
+  const [audio] = useState(new Audio(WordData[props.word].testAudio));
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
@@ -61,13 +58,12 @@ function Tester() {
   useEffect(() => {
     if (withPicture) {
       const el = document.getElementById("nose");
-      const imageFilePath =
-        "https://dl.dropbox.com/s/tmrkb8y57dlw1no/%E5%8F%88.png";
+      const imageFilePath = WordData[word].imageUrl;
       if (el) {
         el.style.backgroundImage = `url('${imageFilePath}')`;
       }
     }
-  }, [withPicture]);
+  }, [withPicture, word]);
 
   return (
     <div>
