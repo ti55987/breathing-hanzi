@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import HanziWriter from "hanzi-writer";
 import WordPresenter from "./word_presenter";
 import { WordData } from "./word_data";
+import "./tester_container.css";
 
 function WordContainer() {
   const { word } = useParams<{ word: string }>();
@@ -26,7 +27,9 @@ function WordContainer() {
   return (
     <div>
       <WordPresenter word={word} url={WordData[word].imageUrl} />
+      <hr />
       <button
+        className="audio-button"
         onClick={() => {
           gridWriter && gridWriter.animateCharacter();
         }}

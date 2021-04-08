@@ -3,3 +3,21 @@
   background-repeat: no-repeat;
   background-position: center;
 }
+
+.audio-button {
+  background-color: #71b270; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+}
+
+.audio-button:hover {
+  background-color: #4caf50; /* Green */
+  color: black;
+}

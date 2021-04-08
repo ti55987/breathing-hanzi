@@ -1,6 +1,7 @@
 import React from "react";
-import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import "./App.css";
 import WordContainer from "./components/word_container";
 import Tester from "./components/tester_container";
 import Navbar from "./components/navbar";
@@ -10,8 +11,6 @@ function AppRouter() {
     <Router>
       <Navbar />
       <div className="App">
-        <hr />
-
         {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path

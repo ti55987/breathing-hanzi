@@ -9,7 +9,7 @@ import * as ImIcons from "react-icons/im";
 import "./tester_container.css";
 const queryString = require("query-string");
 
-function AudioPlayer(props: { url: string }) {
+function AudioPlayer(props: { url: string; btnText: string }) {
   const [audio] = useState(new Audio(props.url));
   const [playing, setPlaying] = useState(false);
 
@@ -28,8 +28,8 @@ function AudioPlayer(props: { url: string }) {
 
   const hitPlayer = () => setPlaying(!playing);
   return (
-    <button onClick={hitPlayer}>
-      <ImIcons.ImSoundcloud />
+    <button className="audio-button" onClick={hitPlayer}>
+      {props.btnText} <ImIcons.ImSoundcloud />
     </button>
   );
 }
@@ -68,13 +68,12 @@ function Tester() {
   return (
     <div>
       <WordNavbar word={word} />
-      <AudioPlayer url={WordData[word].testAudio} />
-      <h1>請寫出</h1>
+      <AudioPlayer url={WordData[word].testAudio} btnText="請寫出" />
+      <br />
+      <br />
       {backgroud}
       <hr />
-      <h3>提示</h3>
-      <br />
-      <AudioPlayer url={WordData[word].hintAudio} />
+      <AudioPlayer url={WordData[word].hintAudio} btnText="提示" />
     </div>
   );
 }
