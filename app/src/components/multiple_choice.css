@@ -1,0 +1,8 @@
+.multiple-choice {
+  width: 25%;
+  display: block;
+  text-align: center;
+  box-sizing: border-box;
+  float: left;
+  padding: 0 2em;
+}
