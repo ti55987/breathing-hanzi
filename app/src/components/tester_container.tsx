@@ -3,9 +3,9 @@ import HanziWriter from "hanzi-writer";
 import { useLocation, useParams } from "react-router-dom";
 import { ReactComponent as GridPic } from "../images/grid.svg";
 import WordNavbar from "./word_navbar";
-import { WordData } from "./word_data";
+import { WordData } from "./constants/word_data";
 import * as googleTTS from "google-tts-api";
-import * as ImIcons from "react-icons/im";
+import * as GiIcons from "react-icons/gi";
 import "./tester_container.css";
 const queryString = require("query-string");
 
@@ -29,7 +29,7 @@ function AudioPlayer(props: { url: string; btnText: string }) {
   const hitPlayer = () => setPlaying(!playing);
   return (
     <button className="audio-button" onClick={hitPlayer}>
-      {props.btnText} <ImIcons.ImSoundcloud />
+      {props.btnText} <GiIcons.GiAwareness />
     </button>
   );
 }

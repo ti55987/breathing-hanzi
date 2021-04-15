@@ -1,7 +1,5 @@
 import React from "react";
-import * as BsIcons from "react-icons/bs";
-import * as AiIcons from "react-icons/ai";
-import * as ImIcons from "react-icons/im";
+import * as GiIcons from "react-icons/gi";
 
 const demoPath = (word: string) => {
   return "/hanzi/" + word;
@@ -15,23 +13,33 @@ const testPath = (word: string) => {
   return "/hanzi/" + word + "/test";
 };
 
+const multipleChoicePath = (word: string) => {
+  return "/hanzi/" + word + "/multiple_choice";
+};
+
 export const WordNavbarData = [
   {
     title: "字卡",
     path: demoPath,
-    icon: <BsIcons.BsCardText />,
+    icon: <GiIcons.GiAbstract055 />,
+    cName: "navbar-top"
+  },
+  {
+    title: "配對圖字",
+    path: multipleChoicePath,
+    icon: <GiIcons.GiBabyFace />,
     cName: "navbar-top"
   },
   {
     title: "看圖寫字",
     path: testWithDrawingPath,
-    icon: <AiIcons.AiFillPicture />,
+    icon: <GiIcons.GiBalloonDog />,
     cName: "navbar-top"
   },
   {
     title: "測驗",
     path: testPath,
-    icon: <ImIcons.ImPencil2 />,
+    icon: <GiIcons.GiBarbedStar />,
     cName: "navbar-top"
   }
 ];

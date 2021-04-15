@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./multiple_choice.css";
 // @ts-ignore: Unreachable code error
 import { Test, QuestionGroup, Question, Option } from "react-multiple-choice";
-import { WordData } from "./word_data";
+import { WordData } from "./constants/word_data";
 
 type SelectOption = {
   [key: string]: string;

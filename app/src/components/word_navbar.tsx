@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./word_navbar.css";
-import { WordNavbarData } from "./word_navbar_data";
+import { WordNavbarData } from "./constants/word_navbar_data";
 
 function WordNavbar(props: { word: string }) {
   const { word } = props;
