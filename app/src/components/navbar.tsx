@@ -7,6 +7,7 @@ import "./navbar.css";
 import { IconContext } from "react-icons";
 import { WordData } from "./constants/word_data";
 import * as ImIcons from "react-icons/im";
+import * as GiIcons from "react-icons/gi";
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false);
@@ -20,7 +21,11 @@ function Navbar() {
           <FaIcons.FaBars onClick={showSidebar} />
         </Link>
         <div className="title">
-          <h1>有生命的漢字</h1>
+          <h1>
+            <GiIcons.GiCamel />
+            有生命的漢字
+            <GiIcons.GiCamel />
+          </h1>
         </div>
       </div>
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
