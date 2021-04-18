@@ -6,3 +6,20 @@
   float: left;
   padding: 0 2em;
 }
+
+.back-button {
+  background-color: #0a0e11; /* black */
+  color: white;
+  padding: 15px 15px;
+  text-align: center;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 12px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+}
+
+.back-button:hover {
+  background-color: #0a0e11; /* black */
+  color: grey;
+}

@@ -4,6 +4,7 @@ import "./multiple_choice.css";
 // @ts-ignore: Unreachable code error
 import { Test, QuestionGroup, Question, Option } from "react-multiple-choice";
 import { WordData } from "./constants/word_data";
+import WordNavbar from "./word_navbar";
 
 type SelectOption = {
   [key: string]: string;
@@ -18,6 +19,7 @@ function MultipleChoice() {
   const rightAnswer = selectedOptions === word ? "答對了!" : "再試一次!";
   return (
     <div>
+      <WordNavbar word={word} />
       {sumitted && <h2>{rightAnswer}</h2>}
       <Test
         onOptionSelect={(i: SelectOption) => {
@@ -32,7 +34,7 @@ function MultipleChoice() {
           {Object.keys(WordData).map(key => {
             return (
               <Option value={key}>
-                <img width="200" height="200" src={WordData[key].imageUrl} />
+                <img width="100" height="100" src={WordData[key].imageUrl} />
               </Option>
             );
           })}
