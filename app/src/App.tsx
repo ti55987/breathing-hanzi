@@ -6,6 +6,7 @@ import WordContainer from "./components/word_container";
 import Tester from "./components/tester_container";
 import Navbar from "./components/navbar";
 import MultipleChoice from "./components/multiple_choice";
+import WordCardList from "./components/word_card_list";
 
 function AppRouter() {
   return (
@@ -21,7 +22,7 @@ function AppRouter() {
         */}
         <Switch>
           <Route exact path="/">
-            <Home />
+            <WordCardList />
           </Route>
           <Route exact path="/about">
             <About />
@@ -43,14 +44,6 @@ function AppRouter() {
 
 // You can think of these components as "pages"
 // in your app.
-
-function Home() {
-  return (
-    <div>
-      <h2>有生命的漢字</h2>
-    </div>
-  );
-}
 
 function About() {
   return (

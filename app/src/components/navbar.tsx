@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 import { SidebarData } from "./constants/sidebar_data";
 import "./navbar.css";
 import { IconContext } from "react-icons";
-import { WordData } from "./constants/word_data";
-import * as ImIcons from "react-icons/im";
 import * as GiIcons from "react-icons/gi";
 
 function Navbar() {
@@ -41,16 +39,6 @@ function Navbar() {
                 <Link to={item.path}>
                   {item.icon}
                   <span>{item.title}</span>
-                </Link>
-              </li>
-            );
-          })}
-          {Object.keys(WordData).map(key => {
-            return (
-              <li key={key} className="nav-text">
-                <Link to={`/hanzi/${key}`}>
-                  <ImIcons.ImQuill />
-                  <span>{key}</span>
                 </Link>
               </li>
             );
