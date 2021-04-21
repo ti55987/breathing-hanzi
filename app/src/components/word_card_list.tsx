@@ -7,10 +7,10 @@ import "./word_card_list.css";
 function WordCardList() {
   return (
     <div>
-      <ul className="word-card-items">
+      <ul className="wordcard-container">
         {Object.keys(WordData).map(key => {
           return (
-            <li key={key} className="word-card-text">
+            <li key={key} className="wordcard-item">
               <Link to={`/hanzi/${key}`}>
                 <ImIcons.ImQuill />
                 <span>{key}</span>

@@ -12,10 +12,9 @@
 }
 
 .title {
-  margin-left: 38rem;
-  margin-bottom: 1rem;
+  width: 100%;
   text-align: center;
-  justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .nav-menu {
@@ -57,7 +56,7 @@
 }
 
 .nav-text a:hover {
-  background-color: #7fd4d9;
+  background-color: #f7fafa;
 }
 
 .nav-menu-items {

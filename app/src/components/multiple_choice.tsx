@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import "./multiple_choice.css";
 // @ts-ignore: Unreachable code error
-import { Test, QuestionGroup, Question, Option } from "react-multiple-choice";
+import { Test, Question, QuestionGroup, Option } from "react-multiple-choice";
 import { WordData } from "./constants/word_data";
 import WordNavbar from "./word_navbar";
 
@@ -20,27 +20,28 @@ function MultipleChoice() {
   return (
     <div>
       <WordNavbar word={word} />
-      {sumitted && <h2>{rightAnswer}</h2>}
       <Test
         onOptionSelect={(i: SelectOption) => {
           setSelectedOptions(i[questionNumber]);
           setSubmitted(false);
         }}
       >
+        <Question style={{ "font-size": "2rem" }}>
+          請選擇對應 [ {word} ] 的圖像
+        </Question>
         <QuestionGroup questionNumber={questionNumber}>
-          <Question style={{ "font-size": "2rem" }}>
-            請選擇對應 [ {word} ] 的圖像
-          </Question>
           {Object.keys(WordData).map(key => {
             return (
               <Option value={key}>
-                <img width="100" height="100" src={WordData[key].imageUrl} />
+                <img width="150" height="150" src={WordData[key].imageUrl} />
               </Option>
             );
           })}
         </QuestionGroup>
       </Test>
       <br />
+
+      {sumitted && <h2>{rightAnswer}</h2>}
       <button
         className="audio-button"
         onClick={() => {
