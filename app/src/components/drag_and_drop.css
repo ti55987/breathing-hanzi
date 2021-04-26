@@ -1,0 +1,30 @@
+.container-drag {
+  display: flex;
+  justify-content: space-between;
+}
+
+.options {
+  width: 40%;
+  height: 100vh;
+}
+
+.draggable {
+  width: 90%;
+  border: 3px solid #71b270;
+  line-height: 5em;
+  margin-bottom: 1rem;
+}
+
+.droppable {
+  width: 40%;
+  height: 80vh;
+  top: 10;
+  margin-top: 2rem;
+  border: 3px dashed #71b270;
+  border-radius: 4px;
+}
+
+.task-header {
+  width: 100%;
+  font-size: 28px;
+}

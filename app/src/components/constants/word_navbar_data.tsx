@@ -13,8 +13,8 @@ const testPath = (word: string) => {
   return "/hanzi/" + word + "/test";
 };
 
-const multipleChoicePath = (word: string) => {
-  return "/hanzi/" + word + "/multiple_choice";
+const dragAndDropPath = (word: string) => {
+  return "/hanzi/" + word + "/drap_and_drop";
 };
 
 export const WordNavbarData = [
@@ -26,7 +26,7 @@ export const WordNavbarData = [
   },
   {
     title: "配對圖字",
-    path: multipleChoicePath,
+    path: dragAndDropPath,
     icon: <GiIcons.GiBabyFace />,
     cName: "navbar-top"
   },
