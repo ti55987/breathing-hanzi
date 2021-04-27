@@ -40,7 +40,11 @@ function Tester() {
 
   const withPicture = queryString.parse(location.search).picture === "true";
   const picture = <div id="nose" className="drawing-background"></div>;
-  const backgroud = withPicture ? picture : <GridPic />;
+  const backgroud = withPicture ? (
+    picture
+  ) : (
+    <GridPic className="grid-background" />
+  );
 
   useEffect(() => {
     const idName = withPicture ? "nose" : "grid-background-target";
@@ -66,14 +70,14 @@ function Tester() {
   }, [withPicture, word]);
 
   return (
-    <div>
+    <div className="test-container">
       <WordNavbar word={word} />
-      <AudioPlayer url={WordData[word].testAudio} btnText="請寫出" />
-      <br />
-      <br />
-      {backgroud}
-      <hr />
-      <AudioPlayer url={WordData[word].hintAudio} btnText="提示" />
+      <div className="test-area">
+        <AudioPlayer url={WordData[word].testAudio} btnText="請寫出" />
+        {backgroud}
+        <hr />
+        <AudioPlayer url={WordData[word].hintAudio} btnText="提示" />
+      </div>
     </div>
   );
 }

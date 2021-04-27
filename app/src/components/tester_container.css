@@ -1,13 +1,29 @@
+.test-container {
+  display: flex;
+}
+
+.test-area {
+  width: 80%;
+}
+
 .drawing-background {
   background-size: 300px 300px;
   background-repeat: no-repeat;
   background-position: center;
 }
 
+.grid-background {
+  display: flex;
+  position: relative;
+  margin-top: 1rem;
+  margin-left: 26rem;
+}
+
 .audio-button {
   background-color: #71b270; /* Green */
   border: none;
   color: white;
+  margin-top: 1rem;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;

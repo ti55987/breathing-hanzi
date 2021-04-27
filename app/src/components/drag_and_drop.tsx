@@ -40,7 +40,7 @@ function DragAndDropPractice() {
     <div className="container-drag">
       <WordNavbar word={word} />
       <div className="options">
-        <span className="task-header">拖曳對應圖像到右側</span>
+        <h2>拖曳對應圖像到右側</h2>
         {draggableOptions}
       </div>
 
