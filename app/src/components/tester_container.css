@@ -4,6 +4,7 @@
 
 .test-area {
   width: 80%;
+  justify-content: center;
 }
 
 .drawing-background {
@@ -14,9 +15,9 @@
 
 .grid-background {
   display: flex;
-  position: relative;
+  margin: 0 auto;
   margin-top: 1rem;
-  margin-left: 26rem;
+  border: 3px solid #dce2e1;
 }
 
 .audio-button {
@@ -27,7 +28,6 @@
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 26px;
   border-radius: 12px;
   transition-duration: 0.4s;

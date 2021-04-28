@@ -10,12 +10,7 @@ function DragAndDropPractice() {
   const [options, setOptions] = useState(WordData);
   const [selectedOption, setSelectedOption] = useState("0");
 
-  useEffect(() => {
-    const gridWriter = HanziWriter.create("character", word, {
-      width: 200,
-      height: 200
-    });
-  }, [word]);
+  useEffect(() => {}, [word]);
 
   const draggableOptions = Object.keys(options).map(key => {
     return (
@@ -59,6 +54,7 @@ function DragAndDropPractice() {
           setSelectedOption(id);
         }}
       >
+        <img className="ancient-word" src={WordData[word].ancientUrl} />
         {WordData[selectedOption] && (
           <div>
             <h2>{rightAnswer}</h2>

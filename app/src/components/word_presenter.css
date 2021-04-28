@@ -1,0 +1,8 @@
+.word-container {
+  display: flex;
+}
+
+.word-area {
+  margin-top: 1rem;
+  width: 80%;
+}

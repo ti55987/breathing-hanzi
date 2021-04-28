@@ -10,9 +10,9 @@
 
 .draggable {
   width: 90%;
-  border: 3px solid #71b270;
+  border: 3px solid #00af91;
   line-height: 5em;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .droppable {
@@ -20,11 +20,17 @@
   height: 80vh;
   top: 10;
   margin-top: 5rem;
-  border: 3px dashed #71b270;
+  border: 3px dashed #dce2e1;
   border-radius: 4px;
 }
 
 .task-header {
   width: 100%;
   font-size: 28px;
+}
+
+.ancient-word {
+  padding: 55px;
+  width: 200px;
+  height: 200px;
 }
