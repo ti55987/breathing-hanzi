@@ -5,4 +5,21 @@
 .word-area {
   margin-top: 1rem;
   width: 80%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.evolution {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 50%;
+  align-items: center;
+}
+
+.grid {
+  background: #dce2e1;
+  display: flex;
+  flex-direction: column;
 }

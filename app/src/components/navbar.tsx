@@ -15,9 +15,6 @@ function Navbar() {
   return (
     <IconContext.Provider value={{ color: "#0a0e11" }}>
       <div className="navbar">
-        <Link to="#" className="menu-bars">
-          <FaIcons.FaBars onClick={showSidebar} />
-        </Link>
         <div className="title">
           <h1>
             <GiIcons.GiCamel />
@@ -25,6 +22,9 @@ function Navbar() {
             <GiIcons.GiCamel />
           </h1>
         </div>
+        <Link to="#" className="menu-bars">
+          <FaIcons.FaBars onClick={showSidebar} />
+        </Link>
       </div>
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
         <ul className="nav-menu-items">
