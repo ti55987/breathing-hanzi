@@ -10,7 +10,7 @@
 
 .draggable {
   width: 90%;
-  border: 3px solid #00af91;
+  border: 3px solid #dce2e1;
   line-height: 5em;
   margin-bottom: 2rem;
 }
@@ -20,17 +20,75 @@
   height: 80vh;
   top: 10;
   margin-top: 5rem;
-  border: 3px dashed #dce2e1;
+  border: 3px dashed #00af91;
   border-radius: 4px;
+  background-size: 400px 400px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.word-option {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 100px;
 }
 
 .task-header {
-  width: 100%;
+  position: relative;
+  left: 25%;
+  top: -65%;
+  border: 3px solid #dce2e1;
+  height: 30%;
+  width: 10%;
   font-size: 28px;
+  color: #00af91;
+}
+
+.selected {
+  border: 3px solid #dce2e1;
+  margin-top: 9rem;
+  margin-left: 6rem;
+  width: 300px;
+  height: 300px;
+  opacity: 0.5;
+}
+
+.selected-word {
+  width: 500px;
+  height: 500px;
+  border: 3px solid #dce2e1;
+  opacity: 0.5;
+  margin-top: 10rem;
+  font-size: 400px;
 }
 
 .ancient-word {
-  padding: 55px;
-  width: 200px;
-  height: 200px;
+  margin-top: 2rem;
+  width: 100px;
+  height: 100px;
+}
+
+.next-button {
+  position: relative;
+  bottom: -45%;
+  right: -85%;
+  font-size: 70px;
+  background-color: inherit;
+  border: none;
+  color: #71b270;
+  padding: 10px 15px;
+  border-radius: 12px;
+  transition-duration: 0.4s;
+}
+
+.next-button:hover {
+  color: #00af91;
+}
+
+.Toastify__toast--warning {
+  width: 300px;
+  font-size: 50px;
+  color: black;
 }

@@ -25,7 +25,7 @@ export const WordData: WordToURLMap = {
   }
 };
 
-type WordToURLMap = {
+export type WordToURLMap = {
   [key: string]: URLData;
 };
 
