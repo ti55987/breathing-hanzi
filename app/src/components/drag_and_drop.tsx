@@ -71,6 +71,8 @@ function DragAndDropPractice() {
     setSelectedOption("0");
     setOptions(WordData);
   };
+  // (TODO) add refresh button.
+
   return (
     <div className="container-drag">
       <WordNavbar word={word} />

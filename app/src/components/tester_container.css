@@ -37,3 +37,19 @@
   background-color: #4caf50; /* Green */
   color: black;
 }
+
+.hint-details {
+  font-size: 26px;
+}
+
+.hint-details > summary {
+  padding: 15px 32px;
+  width: 10%;
+  font-size: 26px;
+  color: white;
+  margin: 0 auto;
+  background-color: #71b270;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}

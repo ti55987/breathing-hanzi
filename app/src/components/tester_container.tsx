@@ -3,36 +3,10 @@ import HanziWriter from "hanzi-writer";
 import { useLocation, useParams } from "react-router-dom";
 import { ReactComponent as GridPic } from "../images/grid.svg";
 import WordNavbar from "./word_navbar";
+import AudioPlayer from "./audio_player";
 import { WordData } from "./constants/word_data";
-import * as googleTTS from "google-tts-api";
-import * as GiIcons from "react-icons/gi";
 import "./tester_container.css";
 const queryString = require("query-string");
-
-function AudioPlayer(props: { url: string; btnText: string }) {
-  const [audio] = useState(new Audio(props.url));
-  const [playing, setPlaying] = useState(false);
-
-  useEffect(() => {
-    if (playing) {
-      audio.play();
-    }
-  }, [playing, audio]);
-
-  useEffect(() => {
-    audio.addEventListener("ended", () => setPlaying(false));
-    return () => {
-      audio.removeEventListener("ended", () => setPlaying(false));
-    };
-  }, [audio]);
-
-  const hitPlayer = () => setPlaying(!playing);
-  return (
-    <button className="audio-button" onClick={hitPlayer}>
-      {props.btnText} <GiIcons.GiAwareness />
-    </button>
-  );
-}
 
 function Tester() {
   const location = useLocation();
@@ -69,14 +43,19 @@ function Tester() {
     }
   }, [withPicture, word]);
 
+  const data = WordData[word];
   return (
     <div className="test-container">
       <WordNavbar word={word} />
       <div className="test-area">
-        <AudioPlayer url={WordData[word].testAudio} btnText="請寫出" />
+        <AudioPlayer url={data.testAudio} btnText="請寫出" />
         {backgroud}
         <hr />
-        <AudioPlayer url={WordData[word].hintAudio} btnText="提示" />
+        <details className="hint-details">
+          <summary>提示</summary>
+          {data.hintText}
+          <AudioPlayer url={data.hintAudio} btnText="" />
+        </details>
       </div>
     </div>
   );
