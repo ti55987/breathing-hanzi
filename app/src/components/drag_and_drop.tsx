@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import HanziWriter from "hanzi-writer";
 import { WordData, WordToURLMap } from "./constants/word_data";
 import WordNavbar from "./word_navbar";
+import AudioPlayer from "./audio_player";
 import * as CgIcon from "react-icons/cg";
 import { ToastContainer, toast } from "react-toastify";
 
@@ -77,7 +78,7 @@ function DragAndDropPractice() {
     <div className="container-drag">
       <WordNavbar word={word} />
       <div className="options">
-        <h2>拖曳對應圖像到右側</h2>
+        <AudioPlayer btnText="拖曳對應圖像到右側" url="" />
         {draggableOptions}
       </div>
       <div

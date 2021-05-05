@@ -8,7 +8,7 @@
 }
 
 .drawing-background {
-  background-size: 300px 300px;
+  background-size: 400px 400px;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -38,12 +38,18 @@
   color: black;
 }
 
+.hint-button {
+  padding: 5px 5px;
+  font-size: 20px;
+  margin-bottom: 1rem;
+}
+
 .hint-details {
   font-size: 26px;
 }
 
 .hint-details > summary {
-  padding: 15px 32px;
+  padding: 15px 15px;
   width: 10%;
   font-size: 26px;
   color: white;
