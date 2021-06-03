@@ -51,32 +51,31 @@ function Tester() {
         <AudioPlayer url={data.testAudio} btnText="請寫出" />
         {backgroud}
         <hr />
-        {buildHints(data.hints, 0)}
+        {buildHints(data.hints)}
       </div>
     </div>
   );
 }
 
-function buildHints(hints: Array<Hint>, index: number) {
-  if (hints.length == index) {
-    return;
-  }
-
+function buildHints(hints: Array<Hint>) {
   let summary = "提示";
-  if (index > 0) {
-    summary = "下個提示";
-  }
-
   return (
     <details className="hint-details">
       <summary>{summary}</summary>
-      {hints[index].text}
-      <AudioPlayer
-        url={hints[index].audio}
-        btnText=""
-        style="audio-button hint-button"
-      />
-      {buildHints(hints, index + 1)}
+      <ul className="hint-ul">
+        {hints.map((item, index) => {
+          const text = "提示 " + index.toString();
+          return (
+            <li key={index} className="hint-li">
+              <AudioPlayer
+                url={item.audio}
+                btnText={text}
+                style="audio-button hint-button"
+              />
+            </li>
+          );
+        })}
+      </ul>
     </details>
   );
 }

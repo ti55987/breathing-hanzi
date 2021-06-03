@@ -42,6 +42,7 @@
   padding: 5px 5px;
   font-size: 20px;
   margin-bottom: 1rem;
+  background-color: #5ac18e;
 }
 
 .hint-details {
@@ -58,4 +59,18 @@
   border: none;
   border-radius: 12px;
   cursor: pointer;
+}
+
+.hint-ul {
+  list-style-type: none;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+}
+
+.hint-li {
+  display: flex;
+  \align-items: center;
+  padding: 2px 2px 2px 2px;
 }
