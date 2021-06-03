@@ -41,6 +41,20 @@ function DragAndDropPractice() {
     }
   }, [withPicture, word]);
 
+  useEffect(() => {
+    const el = document.getElementById("character");
+    if (!el) {
+      return;
+    }
+
+    if (selectedOption === word) {
+      el.style.filter = `invert(100%) sepia(9%) saturate(1640%) hue-rotate(170deg)
+        brightness(93%) contrast(90%)`;
+    } else {
+      el.style.filter = ``;
+    }
+  }, [selectedOption, word]);
+
   const draggableOptions = Object.keys(options).map(key => {
     const option = withPicture ? (
       <img className="ancient-word" src={options[key].ancientUrl} />

@@ -52,15 +52,16 @@
   margin-left: 6rem;
   width: 300px;
   height: 300px;
-  opacity: 0.5;
+  filter: invert(49%) sepia(19%) saturate(5757%) hue-rotate(331deg)
+    brightness(109%) contrast(101%);
 }
 
 .selected-word {
   width: 500px;
   height: 500px;
-  opacity: 0.5;
   margin-top: 10rem;
   font-size: 400px;
+  color: #ff6252;
 }
 
 .ancient-word {

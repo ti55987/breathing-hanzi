@@ -3,9 +3,10 @@ import React from "react";
 // they should be in the server side
 export const WordData: WordToURLMap = {
   又: {
-    imageUrl: "https://dl.dropbox.com/s/tmrkb8y57dlw1no/%E5%8F%88.png",
+    imageUrl:
+      "https://dl.dropbox.com/s/9juhxu304o3t3om/output-onlinepngtools%20%281%29.png",
     ancientUrl:
-      "https://dl.dropbox.com/s/kwmx6u6f4jwunyr/%E5%8F%88%E5%8F%A4.jpg",
+      "https://dl.dropbox.com/s/0t2z6rjbozcg0ip/%E5%8F%88%E9%80%8F.png",
     testAudio: "https://dl.dropbox.com/s/xlrgvb0a6ndjhrn/test_1.mp3",
     hints: [
       {
@@ -18,7 +19,7 @@ export const WordData: WordToURLMap = {
   友: {
     imageUrl: "https://dl.dropbox.com/s/12l86gbashhlvwl/%E5%8F%8B.png",
     ancientUrl:
-      "https://dl.dropbox.com/s/hont43zqlzwd139/%E5%8F%8B%08%E5%8F%A4.jpg",
+      "https://dl.dropbox.com/s/hrjus0v2s3flxsq/%20%E5%8F%8B%E9%80%8F.png",
     testAudio: "https://dl.dropbox.com/s/lcjtedcaqgaricq/test_2.mp3",
     hints: [
       {
@@ -30,7 +31,7 @@ export const WordData: WordToURLMap = {
   爭: {
     imageUrl: "https://dl.dropbox.com/s/qw9wqpbsj66ic2k/%E7%88%AD.png",
     ancientUrl:
-      "https://dl.dropbox.com/s/40ok4uypvdk3sxx/%E7%88%AD%E5%8F%A4.jpg",
+      "https://dl.dropbox.com/s/bvzmajkjtyh3jsx/%E7%88%AD%E9%80%8F.png",
     testAudio: "https://dl.dropbox.com/s/hm18l867a8i8sw9/test_3.mp3",
     hints: [
       {
