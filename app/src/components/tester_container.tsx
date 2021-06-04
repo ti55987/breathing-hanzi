@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import HanziWriter from "hanzi-writer";
 import { useLocation, useParams } from "react-router-dom";
 import { ReactComponent as GridPic } from "../images/grid.svg";
-import WordNavbar from "./word_navbar";
+import WordNavbar from "./navigation/word_navbar";
 import AudioPlayer from "./audio_player";
 import { Hint, WordData } from "./constants/word_data";
 import "./tester_container.css";

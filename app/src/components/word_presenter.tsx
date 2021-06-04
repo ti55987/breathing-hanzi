@@ -1,6 +1,6 @@
 import React from "react";
 import { ReactComponent as GridPic } from "../images/grid.svg";
-import WordNavbar from "./word_navbar";
+import WordNavbar from "./navigation/word_navbar";
 import "./word_presenter.css";
 import "./tester_container.css";
 

@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import WordContainer from "./components/word_container";
 import Tester from "./components/tester_container";
-import Navbar from "./components/navbar";
+import Navbar from "./components/navigation/navbar";
 import DragAndDropPractice from "./components/drag_and_drop";
 import WordCardList from "./components/word_card_list";
 
