@@ -7,6 +7,7 @@ import { WordData } from "./constants/word_data";
 function WordContainer() {
   const { word } = useParams<{ word: string }>();
   const [gridWriter, setGridWriter] = useState<HanziWriter | null>(null);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (gridWriter !== null) {
@@ -33,6 +34,8 @@ function WordContainer() {
       ancientUrl={WordData[word].ancientUrl}
       pictureUrl={WordData[word].imageUrl}
       demo={animateFunc}
+      showModal={showModal}
+      setShowModal={setShowModal}
     />
   );
 }

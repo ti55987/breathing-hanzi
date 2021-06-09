@@ -5,12 +5,16 @@ import { ReactComponent as GridPic } from "../images/grid.svg";
 import WordNavbar from "./navigation/word_navbar";
 import AudioPlayer from "./audio_player";
 import { Hint, WordData } from "./constants/word_data";
+import VideoPlayer from "./video_player";
+
+import * as MdIcons from "react-icons/md";
 import "./tester_container.css";
 const queryString = require("query-string");
 
 function Tester() {
   const location = useLocation();
   const { word } = useParams<{ word: string }>();
+  const [showModal, setShowModal] = useState(false);
 
   const withPicture = queryString.parse(location.search).picture === "true";
   const picture = <div id="nose" className="drawing-background"></div>;
@@ -51,13 +55,13 @@ function Tester() {
         <AudioPlayer url={data.testAudio} btnText="請寫出" />
         {backgroud}
         <hr />
-        {buildHints(data.hints)}
+        {buildHints(data.hints, showModal, setShowModal)}
       </div>
     </div>
   );
 }
 
-function buildHints(hints: Array<Hint>) {
+function buildHints(hints: Array<Hint>, showModal: any, setShowModal: any) {
   let summary = "提示";
   return (
     <details className="hint-details">
@@ -75,6 +79,19 @@ function buildHints(hints: Array<Hint>) {
             </li>
           );
         })}
+        <li className="hint-li">
+          <button
+            className="audio-button hint-button"
+            onClick={() => setShowModal(true)}
+          >
+            複習 <MdIcons.MdLiveTv />
+          </button>
+          <VideoPlayer
+            open={showModal}
+            onClose={() => setShowModal(false)}
+            url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+          />
+        </li>
       </ul>
     </details>
   );

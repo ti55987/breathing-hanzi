@@ -19,7 +19,17 @@
 }
 
 .grid {
-  background: #dce2e1;
+  background: #fff;
   display: flex;
   flex-direction: column;
+}
+
+.grid-children {
+  background: #fff;
+  flex-direction: row;
+}
+
+.demo-button {
+  margin-left: 1rem;
+  background-color: #5ac18e;
 }

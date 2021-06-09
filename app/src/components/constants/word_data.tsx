@@ -1,5 +1,3 @@
-import React from "react";
-
 // they should be in the server side
 export const WordData: WordToURLMap = {
   又: {
