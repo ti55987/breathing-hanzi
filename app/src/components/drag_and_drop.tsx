@@ -91,7 +91,10 @@ function DragAndDropPractice() {
     <div className="container-drag">
       <WordNavbar word={word} />
       <div className="options">
-        <AudioPlayer btnText="拖曳對應圖像到右側" url="" />
+        <AudioPlayer
+          btnText="拖曳對應圖像到右側"
+          url="https://dl.dropbox.com/s/0mr16u4khakqtid/%E6%8B%96%E6%9B%B3%E5%B0%8D%E6%87%89%E5%9C%96%E5%83%8F%E5%88%B0%E5%8F%B3%E5%81%B4.mp3"
+        />
         {draggableOptions}
       </div>
       <div

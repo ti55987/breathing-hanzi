@@ -68,7 +68,8 @@ function buildHints(hints: Array<Hint>, showModal: any, setShowModal: any) {
       <summary>{summary}</summary>
       <ul className="hint-ul">
         {hints.map((item, index) => {
-          const text = "提示 " + index.toString();
+          const num = index + 1;
+          const text = "提示 " + num.toString();
           return (
             <li key={index} className="hint-li">
               <AudioPlayer
