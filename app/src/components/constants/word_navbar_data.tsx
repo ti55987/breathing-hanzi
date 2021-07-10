@@ -6,7 +6,7 @@ const demoPath = (word: string) => {
 };
 
 const testWithDrawingPath = (word: string) => {
-  return "/hanzi/" + word + "/test?picture=true";
+  return "/hanzi/" + word + "/test?level=1";
 };
 
 const testPath = (word: string) => {
@@ -14,7 +14,7 @@ const testPath = (word: string) => {
 };
 
 const dragAndDropPath = (word: string) => {
-  return "/hanzi/" + word + "/drap_and_drop";
+  return "/hanzi/" + word + "/drag_and_drop";
 };
 
 export const WordNavbarData = [

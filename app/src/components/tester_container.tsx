@@ -1,31 +1,41 @@
 import React, { useState, useEffect } from "react";
-import HanziWriter from "hanzi-writer";
-import { useLocation, useParams } from "react-router-dom";
-import { ReactComponent as GridPic } from "../images/grid.svg";
+import { useLocation, useParams, useHistory } from "react-router-dom";
+
 import WordNavbar from "./navigation/word_navbar";
+import TestPresenter from "./test_presenter";
 import AudioPlayer from "./common/audio_player";
 import { Hint, WordData } from "./constants/word_data";
 import VideoPlayer from "./common/video_player";
 
+import HanziWriter from "hanzi-writer";
+import * as CgIcon from "react-icons/cg";
 import * as MdIcons from "react-icons/md";
+
 import "./tester_container.css";
 const queryString = require("query-string");
 
+function getLevel(location: any) {
+  switch (queryString.parse(location.search).level) {
+    case "1":
+      return 1;
+    case "2":
+      return 2;
+    default:
+      return 3;
+  }
+}
+
 function Tester() {
   const location = useLocation();
+  let history = useHistory();
   const { word } = useParams<{ word: string }>();
   const [showModal, setShowModal] = useState(false);
 
-  const withPicture = queryString.parse(location.search).picture === "true";
-  const picture = <div id="nose" className="drawing-background"></div>;
-  const backgroud = withPicture ? (
-    picture
-  ) : (
-    <GridPic className="grid-background" />
-  );
+  const level = getLevel(location);
 
   useEffect(() => {
-    const idName = withPicture ? "nose" : "grid-background-target";
+    const nID = `nose-${level}`;
+    let idName = level < 3 ? nID : "grid-background-target";
     const gridWriter = HanziWriter.create(idName, word, {
       width: 400,
       height: 400,
@@ -35,27 +45,43 @@ function Tester() {
     gridWriter.hideCharacter();
     gridWriter.hideOutline();
     gridWriter.quiz();
-  }, [withPicture, word]);
+  }, [level, word]);
 
   useEffect(() => {
-    if (withPicture) {
-      const el = document.getElementById("nose");
-      const imageFilePath = WordData[word].imageUrl;
+    const imageFilePath =
+      level === 1 ? WordData[word].ancientUrl : WordData[word].imageUrl;
+    if (level < 3) {
+      const el = document.getElementById(`nose-${level}`);
       if (el) {
         el.style.backgroundImage = `url('${imageFilePath}')`;
       }
     }
-  }, [withPicture, word]);
+  }, [level, word]);
 
   const data = WordData[word];
+  const footer =
+    level === 1 ? (
+      <button
+        className="level-button "
+        onClick={() => history.push(`/hanzi/${word}/test?level=2`)}
+      >
+        <CgIcon.CgArrowRightR />
+      </button>
+    ) : (
+      buildHints(data.hints, showModal, setShowModal)
+    );
   return (
     <div className="test-container">
       <WordNavbar word={word} />
       <div className="test-area">
         <AudioPlayer url={data.testAudio} btnText="請寫出" />
-        {backgroud}
+        <TestPresenter
+          level={level}
+          pictureUrl={WordData[word].imageUrl}
+          videoUrl={WordData[word].videoUrl}
+        />
         <hr />
-        {buildHints(data.hints, showModal, setShowModal)}
+        {footer}
       </div>
     </div>
   );

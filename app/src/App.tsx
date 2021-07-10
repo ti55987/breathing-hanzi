@@ -33,7 +33,7 @@ function AppRouter() {
           <Route exact path={"/hanzi/:word/test"}>
             <Tester />
           </Route>
-          <Route exact path={"/hanzi/:word/drap_and_drop"}>
+          <Route exact path={"/hanzi/:word/drag_and_drop"}>
             <DragAndDropPractice />
           </Route>
         </Switch>
