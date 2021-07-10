@@ -5,31 +5,30 @@
 .word-area {
   margin-top: 1rem;
   width: 80%;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
+  display: grid;
+  grid-template-rows: 0px 600px 0px;
+  align-items: center;
+}
+
+.sentence {
+  margin-top: 10rem;
+  font-size: 30px;
 }
 
 .evolution {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 50%;
+  width: 100%;
   align-items: center;
 }
 
-.grid {
+.video {
   background: #fff;
-  display: flex;
-  flex-direction: column;
-}
-
-.grid-children {
-  background: #fff;
-  flex-direction: row;
+  margin-bottom: 10rem;
 }
 
 .demo-button {
-  margin-left: 1rem;
+  margin-right: 5rem;
   background-color: #5ac18e;
 }

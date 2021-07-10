@@ -3,9 +3,9 @@ import HanziWriter from "hanzi-writer";
 import { useLocation, useParams } from "react-router-dom";
 import { ReactComponent as GridPic } from "../images/grid.svg";
 import WordNavbar from "./navigation/word_navbar";
-import AudioPlayer from "./audio_player";
+import AudioPlayer from "./common/audio_player";
 import { Hint, WordData } from "./constants/word_data";
-import VideoPlayer from "./video_player";
+import VideoPlayer from "./common/video_player";
 
 import * as MdIcons from "react-icons/md";
 import "./tester_container.css";

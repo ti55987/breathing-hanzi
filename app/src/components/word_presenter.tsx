@@ -2,7 +2,7 @@ import React from "react";
 import { ReactComponent as GridPic } from "../images/grid.svg";
 import WordNavbar from "./navigation/word_navbar";
 import * as MdIcons from "react-icons/md";
-import VideoPlayer from "./video_player";
+import VideoPlayer from "./common/video_player";
 
 import "./tester_container.css";
 import "./word_presenter.css";
@@ -19,25 +19,26 @@ function WordPresenter(props: {
     <div className="word-container">
       <WordNavbar word={props.word} />
       <div id="character-div" className="word-area">
+        <header className="sentence">
+          就伸出右手由上而下想要搶走，兩個小孩爭了半天，誰都不肯放手。
+        </header>
         <div className="evolution">
           <img width="250" height="250" src={props.pictureUrl} />
-          <img width="200" height="200" src={props.ancientUrl} />
-        </div>
-        <div className="grid">
+          <img width="250" height="250" src={props.ancientUrl} />
           <GridPic id={props.word} />
-          <div className="grid-children">
-            <button
-              className="audio-button demo-button"
-              onClick={() => props.setShowModal(true)}
-            >
-              <MdIcons.MdLiveTv /> 教學影片
-            </button>
-            <VideoPlayer
-              open={props.showModal}
-              onClose={() => props.setShowModal(false)}
-              url={props.videoUrl}
-            />
-          </div>
+        </div>
+        <div className="video">
+          <button
+            className="audio-button demo-button"
+            onClick={() => props.setShowModal(true)}
+          >
+            <MdIcons.MdLiveTv /> 教學影片
+          </button>
+          <VideoPlayer
+            open={props.showModal}
+            onClose={() => props.setShowModal(false)}
+            url={props.videoUrl}
+          />
         </div>
       </div>
     </div>
