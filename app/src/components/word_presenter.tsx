@@ -11,7 +11,7 @@ function WordPresenter(props: {
   word: string;
   ancientUrl: string;
   pictureUrl: string;
-  demo: any;
+  videoUrl: string;
   showModal: boolean;
   setShowModal: any;
 }) {
@@ -26,19 +26,16 @@ function WordPresenter(props: {
         <div className="grid">
           <GridPic id={props.word} />
           <div className="grid-children">
-            <button className="audio-button demo-button" onClick={props.demo}>
-              <MdIcons.MdToys /> 示範
-            </button>
             <button
               className="audio-button demo-button"
               onClick={() => props.setShowModal(true)}
             >
-              <MdIcons.MdLiveTv /> 影片
+              <MdIcons.MdLiveTv /> 教學影片
             </button>
             <VideoPlayer
               open={props.showModal}
               onClose={() => props.setShowModal(false)}
-              url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
+              url={props.videoUrl}
             />
           </div>
         </div>

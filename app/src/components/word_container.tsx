@@ -24,16 +24,12 @@ function WordContainer() {
     setGridWriter(writer);
   }, [word]);
 
-  const animateFunc = () => {
-    gridWriter && gridWriter.animateCharacter();
-  };
-
   return (
     <WordPresenter
       word={word}
       ancientUrl={WordData[word].ancientUrl}
       pictureUrl={WordData[word].imageUrl}
-      demo={animateFunc}
+      videoUrl={WordData[word].videoUrl}
       showModal={showModal}
       setShowModal={setShowModal}
     />

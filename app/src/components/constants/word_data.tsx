@@ -3,6 +3,7 @@ export const WordData: WordToURLMap = {
   又: {
     imageUrl:
       "https://dl.dropbox.com/s/9juhxu304o3t3om/output-onlinepngtools%20%281%29.png",
+    videoUrl: "https://www.youtube.com/watch?v=ysz5S6PUM-U",
     ancientUrl:
       "https://dl.dropbox.com/s/0t2z6rjbozcg0ip/%E5%8F%88%E9%80%8F.png",
     testAudio: "https://dl.dropbox.com/s/xlrgvb0a6ndjhrn/test_1.mp3",
@@ -14,6 +15,7 @@ export const WordData: WordToURLMap = {
   },
   友: {
     imageUrl: "https://dl.dropbox.com/s/12l86gbashhlvwl/%E5%8F%8B.png",
+    videoUrl: "https://www.youtube.com/watch?v=ysz5S6PUM-U",
     ancientUrl:
       "https://dl.dropbox.com/s/hrjus0v2s3flxsq/%20%E5%8F%8B%E9%80%8F.png",
     testAudio: "https://dl.dropbox.com/s/lcjtedcaqgaricq/test_2.mp3",
@@ -25,6 +27,7 @@ export const WordData: WordToURLMap = {
   },
   爭: {
     imageUrl: "https://dl.dropbox.com/s/qw9wqpbsj66ic2k/%E7%88%AD.png",
+    videoUrl: "https://www.youtube.com/watch?v=ysz5S6PUM-U",
     ancientUrl:
       "https://dl.dropbox.com/s/bvzmajkjtyh3jsx/%E7%88%AD%E9%80%8F.png",
     testAudio: "https://dl.dropbox.com/s/hm18l867a8i8sw9/test_3.mp3",
@@ -45,6 +48,7 @@ export type WordToURLMap = {
 
 type URLData = {
   imageUrl: string;
+  videoUrl: string;
   ancientUrl: string;
   testAudio: string;
   hints: Array<Hint>;
