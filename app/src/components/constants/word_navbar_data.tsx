@@ -1,4 +1,3 @@
-import React from "react";
 import * as GiIcons from "react-icons/gi";
 
 const demoPath = (word: string) => {
