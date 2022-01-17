@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import "./word_navbar.css";
 import { WordNavbarData } from "../constants/word_navbar_data";
@@ -10,11 +9,10 @@ function WordNavbar(props: { word: string }) {
       <ul className="word-navbar-ul navbar-nav">
         {WordNavbarData.map((item, index) => {
           return (
-            <li key={index} className={item.cName}>
-              <Link to={item.path(word)}>
-                {item.icon}
-                <span>{item.title}</span>
-              </Link>
+            <li key={index} className='word-navbar-li' data-hover={item.title}>
+                <Link to={item.path(word)}>
+                  {item.icon}
+                </Link>
             </li>
           );
         })}

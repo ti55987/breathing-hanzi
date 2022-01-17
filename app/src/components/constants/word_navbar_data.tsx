@@ -1,4 +1,12 @@
-import * as GiIcons from "react-icons/gi";
+import { GiAbstract089 } from "react-icons/gi";
+import { FaHome } from 'react-icons/fa';
+import { AiTwotoneCopy } from 'react-icons/ai'
+import { BsPencilSquare } from 'react-icons/bs'
+import { ImQuill } from "react-icons/im";
+
+const homwPath = (word: string) => {
+  return "/";
+};
 
 const demoPath = (word: string) => {
   return "/hanzi/" + word;
@@ -18,27 +26,33 @@ const dragAndDropPath = (word: string) => {
 
 export const WordNavbarData = [
   {
+    title: "字庫",
+    path: homwPath,
+    icon: <FaHome />,
+    cName: "navbar-top"
+  },
+  {
     title: "字卡",
     path: demoPath,
-    icon: <GiIcons.GiAbstract055 />,
+    icon: <AiTwotoneCopy />,
     cName: "navbar-top"
   },
   {
     title: "配對圖字",
     path: dragAndDropPath,
-    icon: <GiIcons.GiBabyFace />,
+    icon: <GiAbstract089 />,
     cName: "navbar-top"
   },
   {
     title: "看圖寫字",
     path: testWithDrawingPath,
-    icon: <GiIcons.GiBalloonDog />,
+    icon: <BsPencilSquare />,
     cName: "navbar-top"
   },
   {
     title: "測驗",
     path: testPath,
-    icon: <GiIcons.GiBarbedStar />,
+    icon: <ImQuill />,
     cName: "navbar-top"
   }
 ];

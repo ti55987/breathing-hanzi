@@ -1,12 +1,12 @@
 import { IoMdHelpCircle } from "react-icons/io";
 import { RiTeamFill } from "react-icons/ri";
 import { ImQuill } from "react-icons/im";
-
+import { FaHome } from 'react-icons/fa';
 export const SidebarData = [
   {
     title: "漢字庫",
     path: "/",
-    icon: <ImQuill/>,
+    icon: <FaHome/>,
     cName: "nav-text"
   },
   {

@@ -4,30 +4,48 @@
 
 .word-navbar-ul {
   list-style-type: none;
-  height: 100%;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
 }
 
-.navbar-top {
+.word-navbar-li {
+  position: relative;
   display: flex;
   align-items: center;
-  padding: 8px 0px 8px 16px;
+  border-radius: 5px 20px 5px;
+  margin: 20px;
+  background-color: #FFF4CD;
 }
 
-.navbar-top a {
+.word-navbar-li a {
   display: block;
   color: black;
   text-align: center;
-  padding: 6px 6px 6px 6px;
-  border-radius: 4px;
-  font-size: 28px;
-  width: 95%;
-  height: 100%;
+  font-size: 45px;
+  padding: 16px 16px 16px 16px;
   text-decoration: none;
 }
 
-.navbar-top a:hover {
-  background-color: #f8cfa1;
+.word-navbar-li a:hover {
+  color: #269950;
+  background-color: white;
+}
+
+.word-navbar-li:before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 100px;
+  color: white;
+  background-color: #68540d;
+  text-align: center;
+  transition: opacity 0s ease-in-out;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  right: -50%;
+  top: 70%;
+}
+
+.word-navbar-li:hover:before {
+  opacity: 1;
+  visibility: visible;
 }
