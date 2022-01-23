@@ -1,4 +1,3 @@
-import React from "react";
 import { ReactComponent as GridPic } from "../images/grid.svg";
 import ReactPlayer from "react-player";
 

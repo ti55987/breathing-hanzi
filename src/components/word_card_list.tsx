@@ -1,4 +1,3 @@
-import React from "react";
 import { WordData } from "./constants/word_data";
 import { Link } from "react-router-dom";
 import "./word_card_list.css";

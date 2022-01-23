@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useParams, useHistory } from "react-router-dom";
 
 import WordNavbar from "./navigation/word_navbar";

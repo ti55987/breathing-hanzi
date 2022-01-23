@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import HanziWriter from "hanzi-writer";
 import WordPresenter from "./word_presenter";

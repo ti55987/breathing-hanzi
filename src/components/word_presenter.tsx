@@ -1,4 +1,3 @@
-import React from "react";
 import { ReactComponent as GridPic } from "../images/grid.svg";
 import WordNavbar from "./navigation/word_navbar";
 import * as MdIcons from "react-icons/md";

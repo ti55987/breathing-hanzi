@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import * as GiIcons from "react-icons/gi";
 
 function AudioPlayer(props: { url: string; btnText: string; style?: string }) {
