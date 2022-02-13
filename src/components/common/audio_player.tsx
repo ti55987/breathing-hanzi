@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import * as GiIcons from "react-icons/gi";
+import { AiFillSound } from "react-icons/ai";
 
 function AudioPlayer(props: { url: string; btnText: string; style?: string }) {
   const [audio] = useState(new Audio(props.url));
@@ -26,7 +26,7 @@ function AudioPlayer(props: { url: string; btnText: string; style?: string }) {
 
   return (
     <button className={className} onClick={hitPlayer}>
-      {props.btnText} <GiIcons.GiAwareness />
+      {props.btnText} <AiFillSound />
     </button>
   );
 }

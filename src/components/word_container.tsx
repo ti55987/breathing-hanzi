@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import HanziWriter from "hanzi-writer";
 import WordPresenter from "./word_presenter";
 import { WordData } from "./constants/word_data";
 
@@ -14,7 +13,9 @@ function WordContainer() {
       word={word}
       ancientUrl={WordData[word].ancientUrl}
       pictureUrl={WordData[word].imageUrl}
+      audioUrl={WordData[word].autdioUrl}
       videoUrl={WordData[word].videoUrl}
+      wordUrl={WordData[word].wordUrl}
       showModal={showModal}
       setShowModal={setShowModal}
     />

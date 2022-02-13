@@ -1,7 +1,7 @@
 import WordNavbar from "./navigation/word_navbar";
 import VideoPlayer from "./common/video_player";
+import AudioPlayer from "./common/audio_player";
 import { MdLiveTv } from "react-icons/md";
-import { AiFillSound } from "react-icons/ai";
 import { BiBrain } from "react-icons/bi";
 import "./tester_container.css";
 import "./word_presenter.css";
@@ -10,7 +10,9 @@ function WordPresenter(props: {
   word: string;
   ancientUrl: string;
   pictureUrl: string;
+  audioUrl: string;
   videoUrl: string;
+  wordUrl: string;
   showModal: boolean;
   setShowModal: any;
 }) {
@@ -18,16 +20,16 @@ function WordPresenter(props: {
     <div className="word-container">
       <WordNavbar word={props.word} />
       <div id="character-div" className="word-area">
-          <img width="250" height="50%" src={props.pictureUrl} />
-          <img width="250" height="50%" src={props.ancientUrl} />
+          <img width="30%" src={props.pictureUrl} />
+          <img width="250" src={props.ancientUrl} />
           <div className="word-card">
-            {props.word}
-            <div className="card-nav"> 
-              <button
-                className="demo-button"
-              >
-                <AiFillSound />
-              </button>              
+            <img width="350" height="60%" className="image color-word" src={props.wordUrl}/>
+            <div className="card-nav">
+              <AudioPlayer
+                url={props.audioUrl}
+                btnText={''}
+                style="demo-button"
+              />              
               <button
                 className="demo-button"
                 onClick={() => props.setShowModal(true)}
