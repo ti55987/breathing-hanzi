@@ -3,19 +3,6 @@
 }
 
 .word-area {
-  margin-top: 1rem;
-  width: 80%;
-  display: grid;
-  grid-template-rows: 0px 600px 0px;
-  align-items: center;
-}
-
-.sentence {
-  margin-top: 10rem;
-  font-size: 30px;
-}
-
-.evolution {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -23,12 +10,33 @@
   align-items: center;
 }
 
-.video {
-  background: #fff;
-  margin-bottom: 10rem;
+.word-card  {
+  text-decoration: none;
+  border-radius: 5px 20px 5px;
+  width: 40%;
+  color: #0a0e11;
+  font-size: 300px;
+  background-color: beige;
+}
+
+.card-nav {
+  display: flex;
+  border-top: gray solid;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .demo-button {
-  margin-right: 5rem;
-  background-color: #5ac18e;
+  margin-top: 1rem;
+  border: none;
+  background-color: beige;
+  color: black;
+  text-align: center;
+  font-size: 80px;
+  text-decoration: none;  
+}
+
+.demo-button:hover {
+  background-color: beige; /* Green */
+  color: #269950;
 }

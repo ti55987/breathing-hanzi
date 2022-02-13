@@ -6,23 +6,8 @@ import { WordData } from "./constants/word_data";
 
 function WordContainer() {
   const { word } = useParams<{ word: string }>();
-  const [gridWriter, setGridWriter] = useState<HanziWriter | null>(null);
   const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    if (gridWriter !== null) {
-      gridWriter.setCharacter(word);
-      return;
-    }
-
-    const writer = HanziWriter.create(word, word, {
-      width: 350,
-      height: 350,
-      padding: 20
-    });
-
-    setGridWriter(writer);
-  }, [word]);
 
   return (
     <WordPresenter
