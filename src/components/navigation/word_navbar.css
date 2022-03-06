@@ -34,8 +34,8 @@
   visibility: hidden;
   opacity: 0;
   width: 100px;
-  color: white;
-  background-color: #68540d;
+  color: black;
+  background-color: #FFF4CD;
   text-align: center;
   transition: opacity 0s ease-in-out;
   border-radius: 5px;

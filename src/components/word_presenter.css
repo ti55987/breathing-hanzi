@@ -21,30 +21,29 @@
 
 .evolution {
   height: 60%;
-  width: 20%;
 }
 
 .color-word {
   margin-top: 10%;
+  height: 60%;
   overflow: hidden;
 }
 
 .card-nav {
-  display: flex;
-  margin-top: 1rem;
   border-top: gray solid;
   align-items: center;
   justify-content: space-around;
 }
 
 .demo-button {
+  display: inline-block;
   margin-top: 1rem;
   border: none;
   background-color: beige;
   color: black;
   text-align: center;
-  font-size: 80px;
-  text-decoration: none;  
+  font-size: 100px;
+  padding: 20px;  
 }
 
 .demo-button:hover {

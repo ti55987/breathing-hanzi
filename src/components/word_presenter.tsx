@@ -20,10 +20,10 @@ function WordPresenter(props: {
     <div className="word-container">
       <WordNavbar word={props.word} />
       <div id="character-div" className="word-area">
-          <img className="evolution" src={props.pictureUrl} />
-          <img className="evolution" src={props.ancientUrl} />
+          <img width="30%" className="evolution" src={props.pictureUrl} />
+          <img width="20%" className="evolution" src={props.ancientUrl} />
           <div className="word-card">
-            <img width="80%" height="60%" className="color-word" src={props.wordUrl}/>
+            <img width="80%" className="color-word" src={props.wordUrl}/>
             <div className="card-nav">
               <AudioPlayer
                 url={props.audioUrl}
