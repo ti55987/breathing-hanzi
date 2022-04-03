@@ -27,6 +27,7 @@ function AudioPlayer(props: { url: string; btnText: string; style?: string }) {
   return (
     <button className={className} onClick={hitPlayer}>
       {props.btnText} <AiFillSound />
+      <div className="tooltiptext">聽聽看</div>
     </button>
   );
 }

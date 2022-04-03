@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.word-card  {
+.word-card {
   text-decoration: none;
   border-radius: 5px 20px 5px;
   width: 40%;
@@ -30,7 +30,7 @@
 }
 
 .card-nav {
-  border-top: gray solid;
+  border-top: thick gray solid;
   align-items: center;
   justify-content: space-around;
 }
@@ -43,10 +43,25 @@
   color: black;
   text-align: center;
   font-size: 100px;
-  padding: 20px;  
+  padding: 20px;
+  cursor: pointer;
 }
 
 .demo-button:hover {
   background-color: beige; /* Green */
   color: #269950;
+}
+
+/* Tooltip text */
+.demo-button .tooltiptext {
+  visibility: hidden;
+  color: black;
+  background-color: beige;
+  text-align: center;
+  font-size: 30px; /* this changes your hover text font size */
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.demo-button:hover .tooltiptext {
+  visibility: visible;
 }
