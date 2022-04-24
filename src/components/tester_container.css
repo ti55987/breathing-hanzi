@@ -15,9 +15,9 @@
 }
 
 .audio-button {
-  background-color: #71b270; /* Green */
+  background-color: beige; /* Green */
   border: none;
-  color: white;
+  color: black;
   margin-top: 1rem;
   padding: 15px 32px;
   text-align: center;
@@ -25,11 +25,12 @@
   font-size: 26px;
   border-radius: 12px;
   transition-duration: 0.4s;
+  cursor: pointer;
 }
 
 .audio-button:hover {
-  background-color: #4caf50; /* Green */
-  color: black;
+  color: #269950;
+  background-color: white;
 }
 
 .hint-button {

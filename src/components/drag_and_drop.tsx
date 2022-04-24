@@ -54,7 +54,7 @@ function DragAndDropPractice() {
     }
   }, [selectedOption, word]);
 
-  const draggableOptions = Object.keys(options).map(key => {
+  const draggableOptions = Object.keys(options).map((key) => {
     const option = withPicture ? (
       <img className="ancient-word" src={options[key].ancientUrl} />
     ) : (
@@ -63,7 +63,7 @@ function DragAndDropPractice() {
     return (
       <div
         key={key}
-        onDragStart={e => {
+        onDragStart={(e) => {
           onDragStart(e, options, key, withPicture);
         }}
         draggable
@@ -95,15 +95,15 @@ function DragAndDropPractice() {
           btnText="拖曳對應圖像到右側"
           url="https://dl.dropbox.com/s/0mr16u4khakqtid/%E6%8B%96%E6%9B%B3%E5%B0%8D%E6%87%89%E5%9C%96%E5%83%8F%E5%88%B0%E5%8F%B3%E5%81%B4.mp3"
         />
-        {draggableOptions}
+        <div className="draggle-options">{draggableOptions}</div>
       </div>
       <div
         id="character"
         className="droppable"
-        onDragOver={e => {
+        onDragOver={(e) => {
           e.preventDefault();
         }}
-        onDrop={e => {
+        onDrop={(e) => {
           let id = e.dataTransfer.getData("id");
           const filteredByKey = Object.fromEntries(
             Object.entries(options).filter(([key, value]) => key !== id)

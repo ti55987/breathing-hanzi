@@ -20,7 +20,7 @@ const testPath = (word: string) => {
   return "/hanzi/" + word + "/test";
 };
 
-const dragAndDropPath = (word: string) => {
+export const dragAndDropPath = (word: string) => {
   return "/hanzi/" + word + "/drag_and_drop";
 };
 

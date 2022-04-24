@@ -3,16 +3,26 @@ import VideoPlayer from "./common/video_player";
 import AudioPlayer from "./common/audio_player";
 import { MdLiveTv } from "react-icons/md";
 import { BiBrain } from "react-icons/bi";
+import { useHistory } from "react-router-dom";
+import { dragAndDropPath } from "./constants/word_navbar_data";
 import "./tester_container.css";
 import "./word_presenter.css";
 
 function CardNavigation(props: {
+  word: string;
   audioUrl: string;
   videoUrl: string;
   showModal: boolean;
   setShowModal: any;
 }) {
   const style = "demo-button";
+  const history = useHistory();
+
+  const routeChange = () =>{
+    let path = dragAndDropPath(props.word);
+    history.push(path);
+  }
+
   return (
     <div className="card-nav">
       <AudioPlayer url={props.audioUrl} btnText={""} style={style} />
@@ -20,7 +30,7 @@ function CardNavigation(props: {
         <MdLiveTv />
         <div className="tooltiptext">教學影片</div>
       </button>
-      <button className={style}>
+      <button className={style} onClick={routeChange}>
         <BiBrain />
         <div className="tooltiptext">小試身手</div>
       </button>
@@ -52,6 +62,7 @@ function WordPresenter(props: {
         <div className="word-card">
           <img width="80%" className="color-word" src={props.wordUrl} />
           <CardNavigation
+            word={props.word}
             setShowModal={props.setShowModal}
             audioUrl={props.audioUrl}
             videoUrl={props.videoUrl}
