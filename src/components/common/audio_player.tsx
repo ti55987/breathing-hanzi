@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { AiFillSound } from "react-icons/ai";
 
-function AudioPlayer(props: { url: string; btnText: string; style?: string }) {
+function AudioPlayer(props: { url: string; btnText: string; showText?: boolean; style?: string }) {
   const [audio] = useState(new Audio(props.url));
   const [playing, setPlaying] = useState(false);
 
@@ -24,10 +24,15 @@ function AudioPlayer(props: { url: string; btnText: string; style?: string }) {
     className = props.style;
   }
 
+  let showText = true
+  if (props.showText == false) {
+    showText = props.showText
+  }
+
   return (
     <button className={className} onClick={hitPlayer}>
       {props.btnText} <AiFillSound />
-      <div className="tooltiptext">聽聽看</div>
+      {showText && <div className="tooltiptext">聽聽看</div>}
     </button>
   );
 }

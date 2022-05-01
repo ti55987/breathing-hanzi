@@ -8,7 +8,7 @@ const homwPath = (word: string) => {
   return "/";
 };
 
-const demoPath = (word: string) => {
+export const demoPath = (word: string) => {
   return "/hanzi/" + word;
 };
 
