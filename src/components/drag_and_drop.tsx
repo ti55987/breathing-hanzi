@@ -82,12 +82,13 @@ function DragAndDropPractice() {
     ) : (
       <h2 className="selected-word">{selectedOption}</h2>
     );
+
+  // (TODO) move to other tests containers
   const next = () => {
     setWithPicture(!withPicture);
     setSelectedOption("0");
     setOptions(WordData);
   };
-  // (TODO) add refresh button.
 
   return (
     <div className="container-drag">
@@ -100,35 +101,36 @@ function DragAndDropPractice() {
         />
         <div className="draggle-options">{draggableOptions}</div>
       </div>
-      <div
-        id="character"
-        className="droppable"
-        onDragOver={(e) => {
-          e.preventDefault();
-        }}
-        onDrop={(e) => {
-          let id = e.dataTransfer.getData("id");
-          const filteredByKey = Object.fromEntries(
-            Object.entries(options).filter(([key, value]) => key !== id)
-          );
-          setOptions(filteredByKey);
-          setSelectedOption(id);
+      <div className="drag-drop-area">
+        <div
+          id="character"
+          className="droppable"
+          onDragOver={(e) => {
+            e.preventDefault();
+          }}
+          onDrop={(e) => {
+            let id = e.dataTransfer.getData("id");
+            const filteredByKey = Object.fromEntries(
+              Object.entries(options).filter(([key, value]) => key !== id)
+            );
+            setOptions(filteredByKey);
+            setSelectedOption(id);
 
-          toast.dismiss();
-          const rightAnswer = id === word ? "答對了!" : "再試一次!";
-          toast.warn(rightAnswer);
-        }}
-      >
-        <div className="word-card">
+            toast.dismiss();
+            const rightAnswer = id === word ? "答對了!" : "再試一次!";
+            toast.warn(rightAnswer);
+          }}
+        >
           {WordData[selectedOption] && <div>{option}</div>}
-          <CardNavbar
-            word={word}
-            setShowModal={setShowModal}
-            audioUrl={WordData[word].autdioUrl}
-            videoUrl={WordData[word].videoUrl}
-            showModal={showModal}
-          />
+
         </div>
+        <CardNavbar
+          word={word}
+          setShowModal={setShowModal}
+          audioUrl={WordData[word].autdioUrl}
+          videoUrl={WordData[word].videoUrl}
+          showModal={showModal}
+        />
       </div>
       <div>
         <ToastContainer />

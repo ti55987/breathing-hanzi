@@ -3,9 +3,8 @@ import AudioPlayer from "../common/audio_player";
 import { MdLiveTv } from "react-icons/md";
 import { BiBrain } from "react-icons/bi";
 import { useHistory } from "react-router-dom";
-import { dragAndDropPath, demoPath } from "../constants/word_navbar_data";
-import "../tester_container.css";
-import "../word_presenter.css";
+import { demoPath } from "../constants/word_navbar_data";
+import "./card_navbar.css";
 
 function CardNavigation(props: {
   word: string;
@@ -14,16 +13,16 @@ function CardNavigation(props: {
   showModal: boolean;
   setShowModal: any;
 }) {
-  const style = "demo-button";
+  const style = "demo-button-1";
   const history = useHistory();
 
-  const routeChange = () =>{
+  const routeChange = () => {
     let path = demoPath(props.word);
     history.push(path);
-  }
+  };
 
   return (
-    <div className="card-nav">
+    <div className="card-nav-1">
       <AudioPlayer url={props.audioUrl} btnText={""} style={style} />
       <button className={style} onClick={() => props.setShowModal(true)}>
         <MdLiveTv />

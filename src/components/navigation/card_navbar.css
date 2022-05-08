@@ -1,0 +1,35 @@
+
+.card-nav-1 {
+  border-top: thick gray solid;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.demo-button-1 {
+  height: 7rem;
+  border: none;
+  background-color: beige;
+  color: black;
+  text-align: center;
+  font-size: 100px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.demo-button-1:hover {
+  background-color: beige;
+  color: #269950;
+}
+
+.demo-button-1 .tooltiptext {
+  visibility: hidden;
+  color: black;
+  background-color: beige;
+  text-align: center;
+  font-size: 30px;
+}
+
+.demo-button-1:hover .tooltiptext {
+  visibility: visible;
+}
+
