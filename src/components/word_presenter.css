@@ -14,7 +14,7 @@
   text-decoration: none;
   border-radius: 5px 20px 5px;
   width: 40%;
-  height: 90%;
+  height: 95%;
   color: #0a0e11;
   background-color: beige;
 }
@@ -29,39 +29,3 @@
   overflow: hidden;
 }
 
-.card-nav {
-  border-top: thick gray solid;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.demo-button {
-  display: inline-block;
-  margin-top: 1rem;
-  border: none;
-  background-color: beige;
-  color: black;
-  text-align: center;
-  font-size: 100px;
-  padding: 20px;
-  cursor: pointer;
-}
-
-.demo-button:hover {
-  background-color: beige; /* Green */
-  color: #269950;
-}
-
-/* Tooltip text */
-.demo-button .tooltiptext {
-  visibility: hidden;
-  color: black;
-  background-color: beige;
-  text-align: center;
-  font-size: 30px; /* this changes your hover text font size */
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.demo-button:hover .tooltiptext {
-  visibility: visible;
-}

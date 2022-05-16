@@ -1,11 +1,11 @@
 
-.card-nav-1 {
+.card-nav {
   border-top: thick gray solid;
   align-items: center;
   justify-content: space-around;
 }
 
-.demo-button-1 {
+.demo-button {
   height: 7rem;
   border: none;
   background-color: beige;
@@ -16,12 +16,12 @@
   cursor: pointer;
 }
 
-.demo-button-1:hover {
+.demo-button:hover {
   background-color: beige;
   color: #269950;
 }
 
-.demo-button-1 .tooltiptext {
+.demo-button .tooltiptext {
   visibility: hidden;
   color: black;
   background-color: beige;
@@ -29,7 +29,7 @@
   font-size: 30px;
 }
 
-.demo-button-1:hover .tooltiptext {
+.demo-button:hover .tooltiptext {
   visibility: visible;
 }
 
