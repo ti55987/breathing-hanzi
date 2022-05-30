@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import WordPresenter from "./word_presenter";
 import { WordData } from "./constants/word_data";

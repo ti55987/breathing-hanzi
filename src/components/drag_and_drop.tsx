@@ -5,6 +5,7 @@ import WordNavbar from "./navigation/word_navbar";
 import CardNavbar from "./navigation/card_navbar";
 import AudioPlayer from "./common/audio_player";
 import { ToastContainer, toast } from "react-toastify";
+import thumbsup from "../images/thumbsup.jpg";
 
 import "./drag_and_drop.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -87,6 +88,7 @@ function DragAndDropPractice() {
           url="https://dl.dropbox.com/s/0mr16u4khakqtid/%E6%8B%96%E6%9B%B3%E5%B0%8D%E6%87%89%E5%9C%96%E5%83%8F%E5%88%B0%E5%8F%B3%E5%81%B4.mp3"
         />
         {!isRightAnswer && <div className="draggle-options">{draggableOptions}</div>}
+        {isRightAnswer && <img className="thumbsup" src={thumbsup} />}
       </div>
       <div className="drag-drop-area">
         <div

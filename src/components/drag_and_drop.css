@@ -11,6 +11,12 @@
   display: flex;
 }
 
+.thumbsup{
+  display: flex;
+  margin-top: 2rem;
+  width: 90%;
+}
+
 .draggable {
   background-color: #C3E5AE; /* Green */
   border: none;
