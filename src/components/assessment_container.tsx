@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { WordData, WordToURLMap } from "./constants/word_data";
+import { WordData } from "./constants/word_data";
 import WordNavbar from "./navigation/word_navbar";
-import CardNavbar from "./navigation/card_navbar";
 import AudioPlayer from "./common/audio_player";
-import UseQuery from "./common/url_parser";
 import { ToastContainer, toast } from "react-toastify";
 import thumbsup from "../images/thumbsup.jpg";
 
@@ -13,52 +11,43 @@ import "react-toastify/dist/ReactToastify.css";
 
 function onDragStart(
   e: any,
-  options: WordToURLMap,
   key: string,
   withPicture: boolean
 ) {
   e.dataTransfer.setData("id", key);
-  if (!withPicture) return;
+  // if (!withPicture) return;
 
-  var img = new Image(150, 150);
-  img.src = options[key].ancientUrl;
-  e.dataTransfer.setDragImage(img, 0, 0);
+  // var img = new Image(150, 150);
+  // img.src = options[key].ancientUrl;
+  // e.dataTransfer.setDragImage(img, 0, 0);
 }
 
-function DragAndDropPractice() {
-  const usePicture = UseQuery().get("picture") === "true";
+function AssessmentContainer() {
   const { word } = useParams<{ word: string }>();
   const [options, setOptions] = useState(WordData);
   const [selectedOption, setSelectedOption] = useState("0");
-  const [showModal, setShowModal] = useState(false);
   const [isRightAnswer, setIsRightAnswer] = useState(false);
 
   useEffect(() => {
     const el = document.getElementById("character");
-    const imageFilePath = usePicture
-      ? WordData[word].imageUrl
-      : WordData[word].ancientUrl;
+    const imageFilePath = WordData[word].ancientUrl
 
     if (el) {
       el.style.backgroundImage = `url('${imageFilePath}')`;
-      //el.style.backgroundSize = "300px 400px";
+      el.style.backgroundSize = "300px 400px";
     }
   }, [word]);
 
   const draggableOptions = Object.keys(options).map((key) => {
-    const option = usePicture ? (
-      <img className="ancient-word" src={options[key].ancientUrl} />
-    ) : (
-      <span className="word-option">{key}</span>
-    );
+    const option = <span className="word-option">{key}</span>
     return (
       <div
         key={key}
         onDragStart={(e) => {
-          onDragStart(e, options, key, usePicture);
+          onDragStart(e, key, false);
         }}
         draggable
-        className="draggable"
+        className="assessment-draggable"
       >
         {option}
       </div>
@@ -66,12 +55,7 @@ function DragAndDropPractice() {
   });
 
   const option =
-    WordData[selectedOption] && usePicture ? (
-      <img className="selected" src={WordData[selectedOption].ancientUrl} />
-    ) : (
-      <h2 className="selected-word">{selectedOption}</h2>
-    );
-
+    WordData[selectedOption] && (<h2 className="selected-word">{selectedOption}</h2>)
   // (TODO) move to other tests containers
   const next = () => {
     setSelectedOption("0");
@@ -92,7 +76,7 @@ function DragAndDropPractice() {
         )}
         {isRightAnswer && <img className="thumbsup" src={thumbsup} />}
       </div>
-      <div className="drag-drop-area">
+      <div className="assessment-drag-drop-area">
         <div
           id="character"
           className="droppable"
@@ -116,16 +100,6 @@ function DragAndDropPractice() {
         >
           {WordData[selectedOption] && <div>{option}</div>}
         </div>
-        {usePicture && (
-          <CardNavbar
-            word={word}
-            setShowModal={setShowModal}
-            audioUrl={WordData[word].autdioUrl}
-            videoUrl={WordData[word].videoUrl}
-            showModal={showModal}
-            isNextWordCard={true}
-          />
-        )}
       </div>
       <div>
         <ToastContainer />
@@ -134,4 +108,4 @@ function DragAndDropPractice() {
   );
 }
 
-export default DragAndDropPractice;
+export default AssessmentContainer;

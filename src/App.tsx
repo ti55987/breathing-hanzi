@@ -5,6 +5,7 @@ import WordContainer from "./components/word_container";
 import Tester from "./components/tester_container";
 import Navbar from "./components/navigation/navbar";
 import DragAndDropPractice from "./components/drag_and_drop";
+import AssessmentContainer from "./components/assessment_container"
 import WordCardList from "./components/word_card_list";
 
 function AppRouter() {
@@ -34,6 +35,9 @@ function AppRouter() {
           </Route>
           <Route exact path={"/hanzi/:word/drag_and_drop"}>
             <DragAndDropPractice />
+          </Route>
+          <Route exact path={"/hanzi/:word/assessment"}>
+            <AssessmentContainer/>
           </Route>
         </Switch>
       </div>

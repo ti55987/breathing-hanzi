@@ -20,8 +20,12 @@ const testPath = (word: string) => {
   return "/hanzi/" + word + "/test";
 };
 
-export const dragAndDropPath = (word: string) => {
-  return "/hanzi/" + word + "/drag_and_drop";
+export const dragAndDropPath = (word: string, withPicture: boolean = false) => {
+  return "/hanzi/" + word + "/drag_and_drop?picture=" + withPicture;
+};
+
+export const assessmentPath = (word: string) => {
+  return "/hanzi/" + word + "/assessment"
 };
 
 export const WordNavbarData = [
@@ -39,7 +43,7 @@ export const WordNavbarData = [
   },
   {
     title: "配對圖字",
-    path: dragAndDropPath,
+    path: assessmentPath,
     icon: <GiAbstract089 />,
     cName: "navbar-top"
   },

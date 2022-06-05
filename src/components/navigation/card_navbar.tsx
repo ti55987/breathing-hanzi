@@ -21,7 +21,7 @@ function CardNavigation(props: {
   const routeChange = () => {
     let path = props.isNextWordCard
       ? demoPath(props.word)
-      : dragAndDropPath(props.word);
+      : dragAndDropPath(props.word, true);
     history.push(path);
   };
 

@@ -17,6 +17,19 @@
   width: 90%;
 }
 
+.assessment-draggable {
+  background-color: #C3E5AE; /* Green */
+  border: none;
+  color: white;
+  width: 90%;
+  border: 1px solid C3E5AE;
+  height: 30rem;
+  border-radius: 5px 20px 5px;
+  margin-right: 2rem;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+
 .draggable {
   background-color: #C3E5AE; /* Green */
   border: none;
@@ -42,7 +55,16 @@
   background-color: beige;
 }
 
+.assessment-drag-drop-area {
+  border-radius: 5px 20px 5px;
+  margin-top: 2rem;
+  width: 35%;
+  height: 36rem;
+  background-color: beige;
+}
+
 .droppable {
+  margin-top: 4rem;
   width: 100%;
   height: 65%;
   color: #0a0e11;
@@ -51,10 +73,16 @@
   align-items: center;
 }
 
+.ancient-word {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  width: 200px;
+}
+
 .word-option {
-  display: inline-block;
-  margin-top: 20px;
-  font-size: 100px;
+  color: #0a0e11;
+  margin-top: 2rem;
+  font-size: 250px;
 }
 
 .task-header {
@@ -76,17 +104,9 @@
 }
 
 .selected-word {
-  width: 500px;
-  height: 500px;
-  margin-top: 10rem;
+  margin-top: 5rem;
   font-size: 400px;
   color: #ff6252;
-}
-
-.ancient-word {
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-  width: 200px;
 }
 
 .next-button {
