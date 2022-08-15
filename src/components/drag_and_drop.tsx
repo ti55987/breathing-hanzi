@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { WordData, WordToURLMap } from "./constants/word_data";
-import WordNavbar from "./navigation/word_navbar";
-import CardNavbar from "./navigation/card_navbar";
+import { toast, ToastContainer } from "react-toastify";
+import thumbsup from "../images/thumbsup.jpg";
 import AudioPlayer from "./common/audio_player";
 import UseQuery from "./common/url_parser";
-import { ToastContainer, toast } from "react-toastify";
-import thumbsup from "../images/thumbsup.jpg";
+import { WordData, WordToURLMap } from "./constants/word_data";
+import CardNavbar from "./navigation/card_navbar";
+import WordNavbar from "./navigation/word_navbar";
 
-import "./drag_and_drop.css";
 import "react-toastify/dist/ReactToastify.css";
+import "./drag_and_drop.css";
 
 function onDragStart(
   e: any,
@@ -41,7 +41,6 @@ function DragAndDropPractice() {
 
     if (el) {
       el.style.backgroundImage = `url('${imageFilePath}')`;
-      //el.style.backgroundSize = "300px 400px";
     }
   }, [word]);
 
@@ -71,12 +70,6 @@ function DragAndDropPractice() {
     ) : (
       <h2 className="selected-word">{selectedOption}</h2>
     );
-
-  // (TODO) move to other tests containers
-  const next = () => {
-    setSelectedOption("0");
-    setOptions(WordData);
-  };
 
   return (
     <div className="container-drag">

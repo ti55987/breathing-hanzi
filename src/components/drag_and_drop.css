@@ -17,17 +17,8 @@
   width: 90%;
 }
 
-.assessment-draggable {
-  background-color: #C3E5AE; /* Green */
-  border: none;
-  color: white;
-  width: 90%;
-  border: 1px solid C3E5AE;
+.draggable.assessment {
   height: 30rem;
-  border-radius: 5px 20px 5px;
-  margin-right: 2rem;
-  margin-top: 2rem;
-  cursor: pointer;
 }
 
 .draggable {
@@ -55,7 +46,7 @@
   background-color: beige;
 }
 
-.assessment-drag-drop-area {
+.drag-drop-area.assessment {
   border-radius: 5px 20px 5px;
   margin-top: 2rem;
   width: 35%;
@@ -105,7 +96,9 @@
 
 .selected-word {
   margin-top: 5rem;
-  font-size: 400px;
+  bottom: 10rem;
+  position: relative;
+  font-size: 420px;
   color: #ff6252;
 }
 

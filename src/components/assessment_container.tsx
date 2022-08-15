@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import thumbsup from "../images/thumbsup.jpg";
+import AudioPlayer from "./common/audio_player";
 import { WordData } from "./constants/word_data";
 import WordNavbar from "./navigation/word_navbar";
-import AudioPlayer from "./common/audio_player";
-import { ToastContainer, toast } from "react-toastify";
-import thumbsup from "../images/thumbsup.jpg";
 
-import "./drag_and_drop.css";
 import "react-toastify/dist/ReactToastify.css";
+import "./drag_and_drop.css";
 
 function onDragStart(
   e: any,
@@ -15,11 +15,6 @@ function onDragStart(
   withPicture: boolean
 ) {
   e.dataTransfer.setData("id", key);
-  // if (!withPicture) return;
-
-  // var img = new Image(150, 150);
-  // img.src = options[key].ancientUrl;
-  // e.dataTransfer.setDragImage(img, 0, 0);
 }
 
 function AssessmentContainer() {
@@ -47,7 +42,7 @@ function AssessmentContainer() {
           onDragStart(e, key, false);
         }}
         draggable
-        className="assessment-draggable"
+        className="draggable assessment"
       >
         {option}
       </div>
@@ -76,7 +71,7 @@ function AssessmentContainer() {
         )}
         {isRightAnswer && <img className="thumbsup" src={thumbsup} />}
       </div>
-      <div className="assessment-drag-drop-area">
+      <div className="drag-drop-area assessment">
         <div
           id="character"
           className="droppable"
