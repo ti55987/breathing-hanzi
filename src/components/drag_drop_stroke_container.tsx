@@ -25,12 +25,16 @@ function DragDropStrokeContainer() {
 
   useEffect(() => {
     const el = document.getElementById("character");
-    const imageFilePath = WordData[word].wordUrl
-
-    if (el) {
+    const el2 = document.getElementById("character2");
+    const imageFilePath = "https://dl.dropbox.com/s/17wtsdpavmkoksk/3.png"
+    const part2ImagePath = "https://dl.dropbox.com/s/3m917kgnqe6scpe/4.png"
+    if (el && el2) {
       el.style.backgroundImage = `url('${imageFilePath}')`;
-      el.style.backgroundSize = "420px 420px";
+      el.style.backgroundSize = "150px 150px";
+      el2.style.backgroundImage = `url('${part2ImagePath}')`;
+      el2.style.backgroundSize = "220px 220px";
     }
+
   }, [word]);
 
   const draggableOptions = (WordData[word].strokes || []).map((item, index) => {
@@ -66,10 +70,10 @@ function DragDropStrokeContainer() {
         )}
         {isRightAnswer && <img className="thumbsup" src={thumbsup} />}
       </div>
-      <div className="drag-drop-area assessment">
+      <div className="drag-drop-area stroke">
         <div
           id="character"
-          className="droppable"
+          className="droppable stroke"
           onDragOver={(e) => {
             e.preventDefault();
           }}
@@ -86,6 +90,15 @@ function DragDropStrokeContainer() {
             toast.dismiss();
             const toastTest = rightAnswer ? "答對了!" : "再試一次!";
             toast.warn(toastTest);
+          }}
+        >
+          {WordData[selectedOption] && <div>{option}</div>}
+        </div>
+        <div
+          id="character2"
+          className="droppable stroke"
+          onDragOver={(e) => {
+            e.preventDefault();
           }}
         >
           {WordData[selectedOption] && <div>{option}</div>}
