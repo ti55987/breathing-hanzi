@@ -14,7 +14,8 @@ export const WordData: WordToURLMap = {
       {
         audio: "https://dl.dropbox.com/s/xbl0k546sgo45xp/%E7%88%AD2.mp3"
       }
-    ]
+    ],
+    strokes: ["https://dl.dropbox.com/s/vpu2n28d71mjg9h/1.png", "https://dl.dropbox.com/s/mtkac7kla6zksqt/2.png"],
   },
   又: {
     imageUrl:
@@ -22,7 +23,7 @@ export const WordData: WordToURLMap = {
     videoUrl: "https://www.youtube.com/watch?v=ysz5S6PUM-U",
     ancientUrl:
       "https://dl.dropbox.com/s/0t2z6rjbozcg0ip/%E5%8F%88%E9%80%8F.png",
-    wordUrl: "https://dl.dropbox.com/s/hq7z1fu14qckyly/%E7%AC%AC%E4%B8%80%E7%89%88.jpg",  
+    wordUrl: "https://dl.dropbox.com/s/hq7z1fu14qckyly/%E7%AC%AC%E4%B8%80%E7%89%88.jpg",
     testAudio: "https://dl.dropbox.com/s/xlrgvb0a6ndjhrn/test_1.mp3",
     autdioUrl: "https://dl.dropbox.com/s/nszkqapz8rc1j23/%E5%8F%88.mp3",
     hints: [
@@ -36,14 +37,14 @@ export const WordData: WordToURLMap = {
     videoUrl: "https://www.youtube.com/watch?v=ysz5S6PUM-U",
     ancientUrl:
       "https://dl.dropbox.com/s/hrjus0v2s3flxsq/%20%E5%8F%8B%E9%80%8F.png",
-    wordUrl: "https://dl.dropbox.com/s/hq7z1fu14qckyly/%E7%AC%AC%E4%B8%80%E7%89%88.jpg",  
+    wordUrl: "https://dl.dropbox.com/s/hq7z1fu14qckyly/%E7%AC%AC%E4%B8%80%E7%89%88.jpg",
     testAudio: "https://dl.dropbox.com/s/lcjtedcaqgaricq/test_2.mp3",
     autdioUrl: "https://dl.dropbox.com/s/idktc7y4phmannq/%E5%8F%8B.mp3",
     hints: [
       {
         audio: "https://dl.dropbox.com/s/idktc7y4phmannq/%E5%8F%8B.mp3"
       }
-    ]
+    ],
   }
 };
 
@@ -59,6 +60,7 @@ type URLData = {
   wordUrl: string;
   testAudio: string;
   hints: Array<Hint>;
+  strokes?: Array<string>;
 };
 
 export type Hint = {

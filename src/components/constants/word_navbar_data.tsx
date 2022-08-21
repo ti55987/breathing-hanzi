@@ -1,7 +1,7 @@
-import { GiAbstract089 } from "react-icons/gi";
+import { AiTwotoneCopy } from 'react-icons/ai';
+import { BsPencilSquare } from 'react-icons/bs';
 import { FaHome } from 'react-icons/fa';
-import { AiTwotoneCopy } from 'react-icons/ai'
-import { BsPencilSquare } from 'react-icons/bs'
+import { GiAbstract089 } from "react-icons/gi";
 import { ImQuill } from "react-icons/im";
 
 const homwPath = (word: string) => {
@@ -26,6 +26,10 @@ export const dragAndDropPath = (word: string, withPicture: boolean = false) => {
 
 export const assessmentPath = (word: string) => {
   return "/hanzi/" + word + "/assessment"
+};
+
+export const dragDropStrokePath = (word: string) => {
+  return "/hanzi/" + word + "/drag_drop_stroke"
 };
 
 export const WordNavbarData = [

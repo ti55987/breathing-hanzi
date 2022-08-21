@@ -13,12 +13,8 @@
 
 .thumbsup{
   display: flex;
-  margin-top: 2rem;
   width: 90%;
-}
-
-.draggable.assessment {
-  height: 30rem;
+  margin-left: 3rem;
 }
 
 .draggable {
@@ -43,14 +39,6 @@
   margin-top: 2rem;
   width: 35%;
   height: 48rem;
-  background-color: beige;
-}
-
-.drag-drop-area.assessment {
-  border-radius: 5px 20px 5px;
-  margin-top: 2rem;
-  width: 35%;
-  height: 36rem;
   background-color: beige;
 }
 
@@ -100,23 +88,6 @@
   position: relative;
   font-size: 420px;
   color: #ff6252;
-}
-
-.next-button {
-  position: relative;
-  bottom: -45%;
-  right: -85%;
-  font-size: 70px;
-  background-color: inherit;
-  border: none;
-  color: #71b270;
-  padding: 10px 15px;
-  border-radius: 12px;
-  transition-duration: 0.4s;
-}
-
-.next-button:hover {
-  color: #00af91;
 }
 
 .Toastify__toast--warning {

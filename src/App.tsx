@@ -1,12 +1,13 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import "./App.css";
-import WordContainer from "./components/word_container";
-import Tester from "./components/tester_container";
-import Navbar from "./components/navigation/navbar";
+import AssessmentContainer from "./components/assessment_container";
 import DragAndDropPractice from "./components/drag_and_drop";
-import AssessmentContainer from "./components/assessment_container"
+import DragDropStrokeContainer from "./components/drag_drop_stroke_container";
+import Navbar from "./components/navigation/navbar";
+import Tester from "./components/tester_container";
 import WordCardList from "./components/word_card_list";
+import WordContainer from "./components/word_container";
 
 function AppRouter() {
   return (
@@ -38,6 +39,9 @@ function AppRouter() {
           </Route>
           <Route exact path={"/hanzi/:word/assessment"}>
             <AssessmentContainer/>
+          </Route>
+          <Route exact path={"/hanzi/:word/drag_drop_stroke"}>
+            <DragDropStrokeContainer/>
           </Route>
         </Switch>
       </div>

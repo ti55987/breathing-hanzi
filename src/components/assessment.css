@@ -1,0 +1,27 @@
+.draggable.assessment {
+  height: 30rem;
+}
+
+.drag-drop-area.assessment {
+  border-radius: 5px 20px 5px;
+  margin-top: 2rem;
+  width: 35%;
+  height: 36rem;
+  background-color: beige;
+}
+
+.next-button {
+  position: relative;
+  font-size: 60px;
+  background-color: beige;
+  left: 2%;
+  border: none;
+  border-radius: 1rem;
+  transition-duration: 0.4s;
+}
+
+.next-button:hover {
+  background-color: #f7fafa;
+  color: #00af91;
+}
+

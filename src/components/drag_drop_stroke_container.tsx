@@ -1,63 +1,56 @@
 import { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import thumbsup from "../images/thumbsup.jpg";
 import AudioPlayer from "./common/audio_player";
 import { WordData } from "./constants/word_data";
-import { dragDropStrokePath } from "./constants/word_navbar_data";
-
-import "./assessment.css";
-import "./drag_and_drop.css";
 import WordNavbar from "./navigation/word_navbar";
+
+import "react-toastify/dist/ReactToastify.css";
+import "./drag_and_drop.css";
+import "./drag_drop_stroke_container.css";
 
 function onDragStart(
   e: any,
   key: string,
-  withPicture: boolean
 ) {
   e.dataTransfer.setData("id", key);
 }
 
-function AssessmentContainer() {
+function DragDropStrokeContainer() {
   const { word } = useParams<{ word: string }>();
   const [options, setOptions] = useState(WordData);
   const [selectedOption, setSelectedOption] = useState("0");
   const [isRightAnswer, setIsRightAnswer] = useState(false);
-  const history = useHistory();
-
-  const routeChange = () => {
-    history.push(dragDropStrokePath(word));
-  };
 
   useEffect(() => {
     const el = document.getElementById("character");
-    const imageFilePath = WordData[word].ancientUrl
+    const imageFilePath = WordData[word].wordUrl
 
     if (el) {
       el.style.backgroundImage = `url('${imageFilePath}')`;
-      el.style.backgroundSize = "300px 400px";
+      el.style.backgroundSize = "420px 420px";
     }
   }, [word]);
 
-  const draggableOptions = Object.keys(options).map((key) => {
-    const option = <span className="word-option">{key}</span>
-    return (
-      <div
-        key={key}
-        onDragStart={(e) => {
-          onDragStart(e, key, false);
-        }}
-        draggable
-        className="draggable assessment"
-      >
-        {option}
-      </div>
-    );
-  });
+  const draggableOptions = (WordData[word].strokes || []).map((item, index) => {
+        return (
+          <div
+            key={index}
+            onDragStart={(e) => {
+              onDragStart(e, index.toString());
+            }}
+            draggable
+            className="draggable stroke"
+          >
+            <img className="ancient-word" src={item} />
+          </div>
+        );
+      })
 
   const option =
     WordData[selectedOption] && (<h2 className="selected-word">{selectedOption}</h2>)
+
 
   return (
     <div className="container-drag">
@@ -71,13 +64,7 @@ function AssessmentContainer() {
         {!isRightAnswer && (
           <div className="draggle-options">{draggableOptions}</div>
         )}
-        {isRightAnswer && (
-        <div>
-          <img className="thumbsup" src={thumbsup} ></img>
-          <button className="next-button" onClick={routeChange}>
-            <div>挑戰下一關</div>
-          </button>
-        </div>)}
+        {isRightAnswer && <img className="thumbsup" src={thumbsup} />}
       </div>
       <div className="drag-drop-area assessment">
         <div
@@ -111,4 +98,4 @@ function AssessmentContainer() {
   );
 }
 
-export default AssessmentContainer;
+export default DragDropStrokeContainer;
