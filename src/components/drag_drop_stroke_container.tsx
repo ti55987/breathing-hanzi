@@ -19,20 +19,20 @@ function onDragStart(
 
 function DragDropStrokeContainer() {
   const { word } = useParams<{ word: string }>();
-  const [options, setOptions] = useState(WordData);
+  const [options, setOptions] = useState(WordData[word].strokes || []);
   const [selectedOption, setSelectedOption] = useState("0");
   const [isRightAnswer, setIsRightAnswer] = useState(false);
 
   useEffect(() => {
     const el = document.getElementById("character");
     const el2 = document.getElementById("character2");
-    const imageFilePath = "https://dl.dropbox.com/s/17wtsdpavmkoksk/3.png"
-    const part2ImagePath = "https://dl.dropbox.com/s/3m917kgnqe6scpe/4.png"
+    const topImageFilePath = "https://dl.dropbox.com/s/17wtsdpavmkoksk/3.png"
+    const bottonImagePath = "https://dl.dropbox.com/s/3m917kgnqe6scpe/4.png"
     if (el && el2) {
-      el.style.backgroundImage = `url('${imageFilePath}')`;
-      el.style.backgroundSize = "150px 150px";
-      el2.style.backgroundImage = `url('${part2ImagePath}')`;
-      el2.style.backgroundSize = "220px 220px";
+      el.style.backgroundImage = `url('${topImageFilePath}')`;
+      el.style.backgroundSize = "40%";
+      el2.style.backgroundImage = `url('${bottonImagePath}')`;
+      el2.style.backgroundSize = "60%";
     }
 
   }, [word]);
@@ -42,7 +42,7 @@ function DragDropStrokeContainer() {
           <div
             key={index}
             onDragStart={(e) => {
-              onDragStart(e, index.toString());
+              onDragStart(e, item);
             }}
             draggable
             className="draggable stroke"
@@ -73,18 +73,18 @@ function DragDropStrokeContainer() {
       <div className="drag-drop-area stroke">
         <div
           id="character"
-          className="droppable stroke"
+          className="droppable stroke top"
           onDragOver={(e) => {
             e.preventDefault();
           }}
           onDrop={(e) => {
             let id = e.dataTransfer.getData("id");
-            const filteredByKey = Object.fromEntries(
-              Object.entries(options).filter(([key, value]) => key !== id)
-            );
+            const filteredByKey =  options.filter(key => key !== id)
             setOptions(filteredByKey);
             setSelectedOption(id);
-            let rightAnswer = id === word;
+
+            let ans = WordData[word]?.strokes?.[0];
+            let rightAnswer = id === ans;
             setIsRightAnswer(rightAnswer);
 
             toast.dismiss();
@@ -96,7 +96,7 @@ function DragDropStrokeContainer() {
         </div>
         <div
           id="character2"
-          className="droppable stroke"
+          className="droppable stroke bottom"
           onDragOver={(e) => {
             e.preventDefault();
           }}

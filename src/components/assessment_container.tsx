@@ -36,7 +36,7 @@ function AssessmentContainer() {
 
     if (el) {
       el.style.backgroundImage = `url('${imageFilePath}')`;
-      el.style.backgroundSize = "300px 400px";
+      el.style.backgroundSize = "35%";
     }
   }, [word]);
 
@@ -82,7 +82,7 @@ function AssessmentContainer() {
       <div className="drag-drop-area assessment">
         <div
           id="character"
-          className="droppable"
+          className="droppable assessment"
           onDragOver={(e) => {
             e.preventDefault();
           }}
