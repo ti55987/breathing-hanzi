@@ -12,16 +12,17 @@ import "./drag_drop_stroke_container.css";
 
 function onDragStart(
   e: any,
-  key: string,
+  key: number,
 ) {
-  e.dataTransfer.setData("id", key);
+  e.dataTransfer.setData("selected_stroke", key);
 }
 
 function DragDropStrokeContainer() {
   const { word } = useParams<{ word: string }>();
   const [options, setOptions] = useState(WordData[word].strokes || []);
-  const [selectedOption, setSelectedOption] = useState("0");
+  const [selectedOption, setSelectedOption] = useState(-1);
   const [isRightAnswer, setIsRightAnswer] = useState(false);
+  const [allAnswersState, setallAnswersState] = useState([false, false]);
 
   useEffect(() => {
     const el = document.getElementById("character");
@@ -37,12 +38,18 @@ function DragDropStrokeContainer() {
 
   }, [word]);
 
+  useEffect(() => {
+    allAnswersState[selectedOption] = true
+    setallAnswersState(allAnswersState);
+    console.log(allAnswersState)
+  }, [selectedOption]);
+
   const draggableOptions = (WordData[word].strokes || []).map((item, index) => {
         return (
           <div
             key={index}
             onDragStart={(e) => {
-              onDragStart(e, item);
+              onDragStart(e, index);
             }}
             draggable
             className="draggable stroke"
@@ -52,9 +59,30 @@ function DragDropStrokeContainer() {
         );
       })
 
-  const option =
-    WordData[selectedOption] && (<h2 className="selected-word">{selectedOption}</h2>)
+  const getOption = (index: number) => {
+    return <img className="selected-word" src={WordData[word]?.strokes?.[index]}/>
+  }
 
+  const isAllPassed = () => {
+    console.log(allAnswersState[0] && allAnswersState[1])
+    return allAnswersState[0] && allAnswersState[1]
+  }
+
+  const onDrop = (e: any, rightIndex: number) => {
+    let id = e.dataTransfer.getData("selected_stroke");
+    const filteredByKey =  options.filter(key => key !== id)
+    setOptions(filteredByKey);
+
+    let rightAnswer = id === rightIndex.toString();
+    setIsRightAnswer(rightAnswer)
+    if (rightAnswer) {
+      setSelectedOption(rightIndex);
+    }
+
+    toast.dismiss();
+    const toastTest = rightAnswer ? "答對了!" : "再試一次!";
+    toast.warn(toastTest);
+  }
 
   return (
     <div className="container-drag">
@@ -65,10 +93,10 @@ function DragDropStrokeContainer() {
           btnText="拖曳對應圖像到右側"
           url="https://dl.dropbox.com/s/0mr16u4khakqtid/%E6%8B%96%E6%9B%B3%E5%B0%8D%E6%87%89%E5%9C%96%E5%83%8F%E5%88%B0%E5%8F%B3%E5%81%B4.mp3"
         />
-        {!isRightAnswer && (
+        {!isAllPassed() && (
           <div className="draggle-options">{draggableOptions}</div>
         )}
-        {isRightAnswer && <img className="thumbsup" src={thumbsup} />}
+        {isAllPassed() && <img className="thumbsup" src={thumbsup} />}
       </div>
       <div className="drag-drop-area stroke">
         <div
@@ -78,21 +106,11 @@ function DragDropStrokeContainer() {
             e.preventDefault();
           }}
           onDrop={(e) => {
-            let id = e.dataTransfer.getData("id");
-            const filteredByKey =  options.filter(key => key !== id)
-            setOptions(filteredByKey);
-            setSelectedOption(id);
-
-            let ans = WordData[word]?.strokes?.[0];
-            let rightAnswer = id === ans;
-            setIsRightAnswer(rightAnswer);
-
-            toast.dismiss();
-            const toastTest = rightAnswer ? "答對了!" : "再試一次!";
-            toast.warn(toastTest);
+            console.log('stroke top')
+            onDrop(e, 0)
           }}
         >
-          {WordData[selectedOption] && <div>{option}</div>}
+          {allAnswersState[0] && getOption(0)}
         </div>
         <div
           id="character2"
@@ -100,8 +118,12 @@ function DragDropStrokeContainer() {
           onDragOver={(e) => {
             e.preventDefault();
           }}
+          onDrop={(e) => {
+            console.log('stroke bottom')
+            onDrop(e, 1)
+          }}
         >
-          {WordData[selectedOption] && <div>{option}</div>}
+          {allAnswersState[1] && getOption(1)}
         </div>
       </div>
       <div>
